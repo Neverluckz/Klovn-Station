@@ -43,6 +43,27 @@ public sealed partial class AtmosAlarmEntryContainer : BoxContainer
         [AtmosAlarmType.Danger] = "atmos-alerts-window-danger-state",
     };
 
+    // Assmos gas port, i don't know if it's needed but eh
+    /*
+    private Dictionary<Gas, string> _gasShorthands = new Dictionary<Gas, string>()
+    {
+        [Gas.Ammonia] = "NH₃",
+        [Gas.CarbonDioxide] = "CO₂",
+        [Gas.Frezon] = "F",
+        [Gas.Nitrogen] = "N₂",
+        [Gas.NitrousOxide] = "N₂O",
+        [Gas.Oxygen] = "O₂",
+        [Gas.Plasma] = "P",
+        [Gas.Tritium] = "T",
+        [Gas.WaterVapor] = "H₂O",
+        [Gas.BZ] = "BZ", // Assmos - /tg/ gases
+        [Gas.Healium] = "Healium", // Assmos - /tg/ gases
+        [Gas.Nitrium] = "Nitrium", // Assmos - /tg/ gases
+        [Gas.Pluoxium] = "Pluox", // Assmos - /tg/ gases
+        [Gas.Hydrogen] = "H₂", // Assmos - /tg/ gases
+    };
+    */
+
     public AtmosAlarmEntryContainer(NetEntity uid, EntityCoordinates? coordinates)
     {
         RobustXamlLoader.Load(this);

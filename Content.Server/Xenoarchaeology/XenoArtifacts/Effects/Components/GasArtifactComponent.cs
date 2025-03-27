@@ -48,6 +48,7 @@ public sealed partial class GasArtifactComponent : Component
         Gas.Healium, // Assmos - /tg/ gases
         Gas.Nitrium, // Assmos - /tg/ gases
         Gas.Pluoxium, // Assmos - /tg/ gases
+        Gas.Hydrogen, // Assmos - /tg/ gases
     };
 
     /// <summary>

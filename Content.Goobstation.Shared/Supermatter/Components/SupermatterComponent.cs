@@ -401,6 +401,8 @@ public sealed partial class SupermatterComponent : Component
         [Gas.BZ] = (TransmitModifier: 0f, HeatPenalty: 5f, PowerMixRatio: 1f), // Assmos - /tg/ gases
         [Gas.Healium] = (TransmitModifier: 2.4f, HeatPenalty: 4f, PowerMixRatio: 1f), // Assmos - /tg/ gases
         [Gas.Pluoxium] = (TransmitModifier: 0f, HeatPenalty: -2.5f, PowerMixRatio: -1f), // Assmos - /tg/ gases
+        [Gas.Hydrogen] = (TransmitModifier: 20f, HeatPenalty: 10f, PowerMixRatio: 1f), // Assmos - /tg/ gases
+        // ^^ hydrogen has heatres of 1f but idk. -lcdc
     };
 
     #endregion SM Gas

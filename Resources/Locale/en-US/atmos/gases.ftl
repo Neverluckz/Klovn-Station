@@ -12,10 +12,13 @@ gas-oxygen-abbreviation = O₂
 gas-plasma-abbreviation = P
 gas-tritium-abbreviation = T
 gas-water-vapor-abbreviation = H₂O
-gas-unknown-abbreviation = X
 
-# funky gas port:
+# assmos gas port start
 gas-bz-abbreviation = bz
 gas-healium-abbreviation = he
 gas-nitrium-abbreviation = nit
 gas-pluoxium-abbreviation = plox
+
+gas-hydrogen-abbreviation = H₂
+gas-unknown-abbreviation = X
+# assmos gas port end
