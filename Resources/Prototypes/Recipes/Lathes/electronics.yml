@@ -782,6 +782,12 @@
 # Assmos - /tg/ gases
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
-  id: ElectrolyzerMachineBoard
-  result: ElectrolyzerMachineBoard
-# Assmos - change end
+  id: ElectrolyzerMachineCircuitboard
+  result: ElectrolyzerMachineCircuitboard
+
+
+# Assmos - Bluespace Gas ## TODO: Finish when we port bluespace gas sender
+#- type: latheRecipe
+#  parent: BaseCircuitboardRecipe
+#  id: BluespaceGasSenderMachineBoard
+#  result: BluespaceGasSenderMachineBoard

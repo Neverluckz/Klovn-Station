@@ -4,13 +4,12 @@ using Content.Server.Atmos.Piping.Components;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Shared.Atmos.Visuals;
-using Content.Shared.Power;
-using Robust.Server.GameObjects;
-using Content.Shared.Interaction;
 using Content.Shared.Atmos;
+using Content.Shared._Funkystation.Atmos.Visuals;
+using Content.Shared.Interaction;
+using Content.Shared.Power;
 
-namespace Content.Server.Atmos.Portable;
+namespace Content.Server._Funkystation.Atmos.Portable;
 
 public sealed class ElectrolyzerSystem : EntitySystem
 {
@@ -63,10 +62,8 @@ public sealed class ElectrolyzerSystem : EntitySystem
 
     private void OnDeviceUpdated(EntityUid uid, ElectrolyzerComponent electrolyzer, ref AtmosDeviceUpdateEvent args)
     {
-        if (!_power.IsPowered(uid))
-        {
+        if (!(_power.IsPowered(uid) && TryComp<ApcPowerReceiverComponent>(uid, out var receiver)))
             return;
-        }
 
         UpdateAppearance(uid);
 
@@ -77,48 +74,55 @@ public sealed class ElectrolyzerSystem : EntitySystem
         var initHyperNob = mixture.GetMoles(Gas.HyperNoblium);
         var initBZ = mixture.GetMoles(Gas.BZ);
         var temperature = mixture.Temperature;
+        const float workingPower = 1.8f;
+        const float powerEfficiency = 1f;
+        float powerLoad = 100f;
+        float activeLoad = (4200f * (3f * workingPower) * workingPower) / (powerEfficiency + workingPower);
 
         if (initH2O > 0.05f)
         {
-            var proportion = Math.Min(initH2O * 0.5f, 2.5f);
-            var efficiency = Math.Min(mixture.Temperature / 1123.15f * 0.75f, 0.75f);
+            var maxProportion = 2.5f * (float) Math.Pow(workingPower, 2);
+            var proportion = Math.Min(initH2O * 0.5f, maxProportion);
+            var temperatureEfficiency = Math.Min(mixture.Temperature / 1123.15f * 0.75f, 0.75f);
 
             var h2oRemoved = proportion * 2f;
-            var oxyProduced = proportion * efficiency;
-            var hydrogenProduced = proportion * 2f * efficiency;
+            var oxyProduced = proportion * temperatureEfficiency;
+            var hydrogenProduced = proportion * 2f * temperatureEfficiency;
 
             mixture.AdjustMoles(Gas.WaterVapor, -h2oRemoved);
             mixture.AdjustMoles(Gas.Oxygen, oxyProduced);
             mixture.AdjustMoles(Gas.Hydrogen, hydrogenProduced);
 
             var heatCap = _atmosphereSystem.GetHeatCapacity(mixture, true);
-            if (heatCap > Atmospherics.MinimumHeatCapacity)
-                mixture.Temperature = Math.Max((mixture.Temperature * heatCap) / heatCap, Atmospherics.TCMB);
+            powerLoad = Math.Max(activeLoad * (hydrogenProduced / (maxProportion * 2)), powerLoad);
         }
 
         if (initHyperNob > 0.01f && temperature < 150f)
         {
-            var proportion = Math.Min(initHyperNob, 1.5f);
+            var maxProportion = 1.5f * (float) Math.Pow(workingPower, 2);
+            var proportion = Math.Min(initHyperNob, maxProportion);
             mixture.AdjustMoles(Gas.HyperNoblium, -proportion);
             mixture.AdjustMoles(Gas.AntiNoblium, proportion * 0.5f);
 
             var heatCap = _atmosphereSystem.GetHeatCapacity(mixture, true);
-            if (heatCap > Atmospherics.MinimumHeatCapacity)
-                mixture.Temperature = Math.Max((mixture.Temperature * heatCap) / heatCap, Atmospherics.TCMB);
+            powerLoad = Math.Max(activeLoad * (proportion / maxProportion), powerLoad);
         }
 
         if (initBZ > 0.01f)
         {
-            var reactionEfficiency = Math.Min(initBZ * (1f - (float)Math.Pow(Math.E, -0.5f * temperature / Atmospherics.FireMinimumTemperatureToExist)), initBZ);
-            mixture.AdjustMoles(Gas.BZ, -reactionEfficiency);
-            mixture.AdjustMoles(Gas.Oxygen, reactionEfficiency * 0.2f);
-            mixture.AdjustMoles(Gas.Halon, reactionEfficiency * 2f);
-            var energyReleased = reactionEfficiency * Atmospherics.HalonProductionEnergy;
+            var proportion = Math.Min(initBZ * (1f - (float) Math.Pow(Math.E, -0.5f * temperature * workingPower / Atmospherics.FireMinimumTemperatureToExist)), initBZ);
+            mixture.AdjustMoles(Gas.BZ, -proportion);
+            mixture.AdjustMoles(Gas.Oxygen, proportion * 0.2f);
+            mixture.AdjustMoles(Gas.Halon, proportion * 2f);
+            var energyReleased = proportion * Atmospherics.HalonProductionEnergy;
 
             var heatCap = _atmosphereSystem.GetHeatCapacity(mixture, true);
             if (heatCap > Atmospherics.MinimumHeatCapacity)
                 mixture.Temperature = Math.Max((mixture.Temperature * heatCap + energyReleased) / heatCap, Atmospherics.TCMB);
+            powerLoad = Math.Max(activeLoad * Math.Min(proportion / 30f, 1), powerLoad);
         }
+
+        receiver.Load = powerLoad;
 
         _gasOverlaySystem.UpdateSessions();
     }
