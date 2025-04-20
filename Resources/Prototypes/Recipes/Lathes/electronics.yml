@@ -231,6 +231,18 @@
   id: HellfireFreezerMachineCircuitBoard
   result: HellfireFreezerMachineCircuitBoard
 
+# Assmos
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: ThermomachineUpgradedFreezerMachineCircuitBoard
+  result: ThermomachineUpgradedFreezerMachineCircuitBoard
+
+# Assmos
+- type: latheRecipe
+  parent: BaseSilverCircuitboardRecipe
+  id: ThermomachineAdvancedFreezerMachineCircuitBoard
+  result: ThermomachineAdvancedFreezerMachineCircuitBoard
+
 - type: latheRecipe
   parent: BaseCircuitboardRecipe
   icon: { sprite: Structures/Piping/Atmospherics/condenser.rsi, state: off } # Goobstation
