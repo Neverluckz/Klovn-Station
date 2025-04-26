@@ -148,6 +148,9 @@
           tags:
           - PowerCell
           - PowerCellSmall
+        blacklist:
+          tags:
+          - NoRecharge  # Assmos - Crystallizer
 
 - type: entity
   parent: [ BaseItemRecharger, ConstructibleMachine ]
@@ -184,6 +187,9 @@
         whitelist:
           tags:
           - PowerCage
+        blacklist:
+          tags:
+          - NoRecharge  # Assmos - Crystallizer
   - type: Machine
     board: PowerCageRechargerCircuitboard
   - type: StaticPrice
@@ -213,6 +219,8 @@
           - WizardWand
           components:
           - MaterialEnergy
+          tags:
+          - NoRecharge  # Assmos - Crystallizer
 
 - type: entity
   parent: BaseItemRecharger
@@ -240,6 +248,7 @@
           tags:
           - PotatoBattery
           - WizardWand # Goobstation
+          - NoRecharge  # Assmos - Crystallizer
           components:  # Goobstation
           - MaterialEnergy
 
@@ -271,6 +280,7 @@
         blacklist:  # Goobstation
           tags:
           - WizardWand
+          - NoRecharge  # Assmos - Crystallizer
 
 - type: entity
   parent: BaseRecharger

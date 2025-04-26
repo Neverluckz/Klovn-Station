@@ -278,6 +278,7 @@
   - ThermomachineAdvancedHeaterMachineCircuitBoard # Assmos # KS - Added heater variant
   - PortableScrubberMachineCircuitBoard
   - HolofanProjector
+  - CrystallizerMachineCircuitboard
   - ElectrolyzerMachineCircuitboard # Assmos - /tg/ gases
   technologyPrerequisites:
   - AtmosphericTech
