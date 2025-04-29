@@ -274,7 +274,7 @@
   id: CrateFunInstrumentsVariety
   parent: CrateGenericSteel
   name: variety instrument collection
-  description: Get your sad station movin' and groovin' with this catch-all variety pack! Contains seven different instruments.
+  description: Get your sad station movin' and groovin' with this catch-all variety pack! Contains eight different instruments.
   components:
   - type: StorageFill
     contents:
@@ -285,6 +285,7 @@
       - id: HarmonicaInstrument
       - id: RecorderInstrument
       - id: GlockenspielInstrument
+      - id: Boombox #ks14
 
 - type: entity
   id: CrateFunInstrumentsBrass
@@ -621,13 +622,3 @@
       - id: PlushieAhti
       - id: PlushieSparkle
       - id: PlushieGrub
-      - id: PlushieFern
-      - id: PlushieHexadecimal
-      - id: PlushieFlint
-      - id: PlushiePistachio
-      - id: PlushieSeesTheStars
-      - id: PlushieDumbLizard
-      - id: PlushieSqueaks
-      - id: PlushieHaato
-      - id: PlushieTinyLane
-      - id: PlushieChewsTheShoes

@@ -489,8 +489,8 @@
   id: LockerFillHeadOfSecurityNoHardsuit
   table: !type:AllSelector
     children:
-    #- id: WeaponEnergyShotgun # Goobstation - security revamp
-    - id: BookSpaceLaw
+#    - id: WeaponEnergyShotgun
+    - id: WeaponEnergyGunMultiphase # Goobstation, replace energy shotgun with the X-01 Multiphase.
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase
       prob: 0.50

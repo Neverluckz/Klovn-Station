@@ -117,10 +117,8 @@
   artist: asardonicsailor
 
 - type: lobbyBackground
-  id: cburn
-  background: /Textures/LobbyScreens/cburn.webp
-  name: Cburn
-  artist: PubliclyExecutedPig
+  id: fucktiders.png
+  background: /Textures/LobbyScreens/fucktiders.png
 
 - type: lobbyBackground
   id: clown
@@ -141,10 +139,8 @@
   artist: ka2220
 
 - type: lobbyBackground
-  id: clownhell
-  background: /Textures/LobbyScreens/clownhell.webp
-  name: Clown Hell
-  artist: kA2220
+  id: smartguy.png
+  background: /Textures/LobbyScreens/smartguy.png
 
 - type: lobbyBackground
   id: cqcm
