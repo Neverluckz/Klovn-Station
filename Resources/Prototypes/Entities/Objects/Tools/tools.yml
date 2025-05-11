@@ -560,6 +560,7 @@
     - ManualValve
     - VolumetricPump
     - PressurePump
+    - HeatPump
     - VentScrubber
     - PressureValve
     - DualPortVent
