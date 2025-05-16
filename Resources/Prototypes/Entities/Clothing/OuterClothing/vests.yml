@@ -60,10 +60,10 @@
     - Chest
     modifiers:
       coefficients:
-        Blunt: 0.4
-        Slash: 0.4
-        Piercing: 0.2
-        Heat: 0.8
+        Blunt: 0.6 #ballistic plates = better protection
+        Slash: 0.6
+        Piercing: 0.35 # Goob edit - shouldn't be better than bulletproof vest
+        Heat: 0.8 # Goob edit - match regular vest
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
@@ -135,10 +135,10 @@
     - Chest
     modifiers:
       coefficients:
-        Blunt: 0.55
-        Slash: 0.55
-        Piercing: 0.3
-        Heat: 0.8
+        Blunt: 0.7 #slightly better overall protection but slightly worse than bulletproof armor against bullets seems sensible
+        Slash: 0.7
+        Piercing: 0.4
+        Heat: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
