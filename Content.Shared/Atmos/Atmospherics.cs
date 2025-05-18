@@ -355,6 +355,7 @@ namespace Content.Shared.Atmos
         public const float PlasmaUpperTemperature = (1370f+T0C);
         public const float PlasmaOxygenFullburn = 10f;
         public const float PlasmaBurnRateDelta = 9f;
+        public const float HydrogenBurnRateDelta = 2f; // Assmos - /tg/ gases
 
         /// <summary>
         ///     This is calculated to help prevent singlecap bombs (Overpowered tritium/oxygen single tank bombs)
@@ -421,11 +422,6 @@ namespace Content.Shared.Atmos
         ///     The amount of energy 1 mol of Nitrium forming from Tritium, Nitrogen and BZ releases.
         /// </summary>
         public const float NitriumProductionEnergy = -100e3f; // Assmos - /tg/ gases
-
-        /// <summary>
-        ///     The amount of energy 1 mol of Pluoxium forming releases.
-        /// </summary>
-        public const float PluoxiumProductionEnergy = 250; // Assmos - /tg/ gases
 
         /// <summary>
         ///     The amount of energy 1 mol of Nitrium decomposing into nitrogen and water vapor releases.
