@@ -34,3 +34,4 @@ ai-consciousness-download-warning = Your consciousness is being downloaded.
 
 ai-command-on = Command
 ai-command-off = Stop commanding
+ai-slave-bot = Slave bot

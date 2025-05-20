@@ -10,5 +10,5 @@ public sealed partial class SiliconSyncableSlaveAiRadialComponent : Component
     public SpriteSpecifier Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Actions/actions_ai.rsi"), "sync");
 
     [DataField, AutoNetworkedField]
-    public LocId Tooltip = "Bot slaving.";
+    public LocId Tooltip = "ai-slave-bot";
 }
