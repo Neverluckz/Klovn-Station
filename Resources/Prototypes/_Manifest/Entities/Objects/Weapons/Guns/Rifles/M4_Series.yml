@@ -34,16 +34,16 @@
     availableModes:
       - FullAuto
       - SemiAuto
-    soundGunshot:
-      path: /Audio/_Manifest/Weapons/Guns/Gunshots/m4.ogg
-  - type: ChamberMagazineAmmoProvider
-    soundRack:
-      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
     minAngle: 2
     maxAngle: 40
     fireRate: 8.2
     angleIncrease: 4.5
     angleDecay: 11.5
+    soundGunshot:
+      path: /Audio/_Manifest/Weapons/Guns/Gunshots/m4.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
   - type: ItemSlots
     slots:
       gun_magazine:

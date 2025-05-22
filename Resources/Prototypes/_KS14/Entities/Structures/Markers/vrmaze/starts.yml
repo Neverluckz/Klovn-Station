@@ -110,7 +110,6 @@
   - type: WirelessNetworkConnection
     range: 1500
   - type: DeviceLinkSink
-    range: 1500
   - type: DeviceLinkSource
     range: 1500
   - type: SignalPropagator
