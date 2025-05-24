@@ -48,12 +48,13 @@
   - type: Tag
     tags:
     - ForceableFollow
+    - AnomalyCoreMaterial
   - type: AnomalyCore
     timeToDecay: 600
     startPrice: 10000
     endPrice: 200
   - type: MovedByPressure #Goob - space wind moment
-    enabled: false 
+    enabled: false
 
 - type: entity
   parent: BaseAnomalyCore

@@ -50,9 +50,16 @@
         icon:
           sprite: Mobs/Species/Human/organs.rsi
           state: heart-on
+      - tag: AnomalyCoreMaterial
+        name: any anomaly core
+        icon:
+          sprite: Structures/Specific/Anomalies/Cores/pyro_core.rsi
+          state: core
       - material: Steel
         amount: 2
       - material: Gold
+        amount: 20
+      - material: Plasma
         amount: 20
       - material: Silver
         amount: 20
