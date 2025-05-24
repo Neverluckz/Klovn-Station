@@ -52,6 +52,10 @@
           state: heart-on
       - material: Steel
         amount: 2
+      - material: Gold
+        amount: 20
+      - material: Silver
+        amount: 20
         doAfter: 10
   - node: dakey
     entity: BaseZoneKey

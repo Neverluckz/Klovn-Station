@@ -20,7 +20,6 @@
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 LuciferMkshelter <stepanteliatnik2022@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
@@ -98,12 +97,6 @@
 
 - type: Tag
   id: CartridgeG8
-
-- type: Tag
-  id: CannotSuicideAny
-  
-- type: Tag
-  id: Chair
 
 - type: Tag
   id: Clarke
@@ -200,6 +193,9 @@
 
 - type: Tag
   id: FelinidEmotes
+
+- type: Tag
+  id: FingerlessInsulatedGloves
 
 - type: Tag
   id: FlashIgnoreResistances
@@ -460,12 +456,6 @@
   id: Table
 
 - type: Tag
-  id: Telecrystal
-
-- type: Tag
-  id: TemplarHelmet
-
-- type: Tag
   id: Tesla
 
 - type: Tag
@@ -508,10 +498,19 @@
   id: WeaponEnergyGunLawbringer
 
 - type: Tag
+  id: Welder
+
+- type: Tag
   id: WeaponPistolCasul
 
 - type: Tag
-  id: WeaponPistolJackal
+  id: WoodenHandle
+
+- type: Tag
+  id: WoodenHandle
+
+- type: Tag
+  id: WelderIndustrial
 
 - type: Tag
   id: WinterCoat
