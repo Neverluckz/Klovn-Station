@@ -20,7 +20,7 @@
           sprite: Objects/Tanks/oxygen.rsi
           state: icon
         doAfter: 3
-      - material: Cable
+      - material: Plasteel
         amount: 7
 
   - node: frameAssembly
@@ -81,7 +81,7 @@
           sprite: Objects/Tanks/oxygen.rsi
           state: icon
         doAfter: 4
-      - material: Cable
+      - material: Plasteel
         amount: 10
 
   - node: reinforcedFrameInd
@@ -146,7 +146,7 @@
           state: icon
         doAfter: 5
       - material: Cable
-        amount: 15
+        amount: Plasteel
 
   - node: plasmaFrame
     entity: UnfinishedWelderSwordExperimental

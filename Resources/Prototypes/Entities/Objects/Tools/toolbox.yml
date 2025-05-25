@@ -70,7 +70,7 @@
     heavyStaminaCost: 10 # goob edit
     damage:
       types:
-        Blunt: 12
+        Blunt: 14
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
   - type: Tag
@@ -171,7 +171,7 @@
   name: suspicious toolbox
   parent: [ToolboxBase, BaseSyndicateContraband]
   id: ToolboxSyndicate
-  description: A sinister looking toolbox filled with elite syndicate tools.
+  description: A sinister looking toolbox filled with elite syndicate tools. Lovingly called the susbox by many.
   components:
   - type: Sprite
     sprite: Objects/Tools/Toolboxes/toolbox_syn.rsi
@@ -187,7 +187,7 @@
     heavyStaminaCost: 10 # goob edit
     damage:
       types:
-        Blunt: 20
+        Blunt: 25
 
 - type: entity
   name: golden toolbox

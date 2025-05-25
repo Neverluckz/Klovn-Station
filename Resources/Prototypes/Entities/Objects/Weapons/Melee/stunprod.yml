@@ -53,39 +53,29 @@
       types:
         Shock: 5
   - type: Stunbaton
-    energyPerUse: 120
-    lightAttackEnergyMultiplier: 1.5 # Goob edit
-  - type: MeleeWeapon # goob edited
-    angle: 0
+    energyPerUse: 50
+    lightAttackEnergyMultiplier: 2
+  - type: MeleeWeapon
+    animationRotation: -45 # WWDP
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 9
-    animation: WeaponArcThrust
-  # it was ~35 now it's 55 so it's a buff ig
-  - type: StaminaDamageOnHit # goob edited
-    damage: 15
-    overtime: 40
-    lightAttackDamageMultiplier: 5
+        Blunt: 10
+    bluntStaminaDamageFactor: 2.0
+  - type: StaminaDamageOnHit # KS reverts, fuck goob
+    damage: 35
+    overtime: 0
+    lightAttackDamageMultiplier: 2
     lightAttackOvertimeDamageMultiplier: 0
     sound: /Audio/Weapons/egloves.ogg
-  - type: StaminaDamageOnCollide # goob edited
-    damage: 15
-    overtime: 40
+  - type: StaminaDamageOnCollide
+    damage: 35
+    overtime: 0
     sound: /Audio/Weapons/egloves.ogg
-  - type: DelayedKnockdownOnHit # Goobstation
-    useDelay: stunbaton
-  - type: UseDelayBlockMelee # Goobstation
-    delays:
-    - stunbaton
   - type: LandAtCursor # it deals stamina damage when thrown
   - type: Battery
-    maxCharge: 360
-    startingCharge: 360
-  - type: UseDelay
-    delays: # Goobstation
-      stunbaton:
-        length: 2.5
+    maxCharge: 400
+    startingCharge: 400
   - type: Item
     heldPrefix: off
     size: Normal

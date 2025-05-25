@@ -186,9 +186,9 @@
         variation: 0.125
     activatedDamage:
       types:
-        Slash: 15
-        Heat: 15
-        Structural: 20
+        Slash: 18.5
+        Heat: 18.5
+        Structural: 25
   - type: MeleeWeapon
     animationRotation: -45 # WWDP
     heavyStaminaCost: 2.5 # goob edit
@@ -219,6 +219,7 @@
         shader: unshaded
   - type: Reflect # Goob edit
     reflectProb: .5
+    otherTypeReflectProb: .3
     reflects:
       - Energy
   - type: IgnitionSource
@@ -281,8 +282,8 @@
         variation: 0.250
     activatedDamage:
         types:
-            Slash: 10
-            Heat: 10
+            Slash: 12.5
+            Heat: 12.5
     deactivatedSecret: true
   - type: ItemToggleActiveSound
     activeSound:
@@ -428,8 +429,8 @@
   - type: ItemToggleMeleeWeapon
     activatedDamage:
         types:
-            Slash: 10
-            Heat: 12
+            Slash: 13
+            Heat: 15
     deactivatedSecret: true
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_cutlass.rsi
@@ -476,8 +477,8 @@
         variation: 0.250
     activatedDamage:
         types:
-            Slash: 17   #Goob Station rebalance, was originally 12
-            Heat: 17    #Goob Station rebalance, was originally 12
+            Slash: 21.5   #Goob Station rebalance, was originally 12
+            Heat: 21.5    #Goob Station rebalance, was originally 12
             Structural: 40 # Goob edit
   - type: ItemToggleActiveSound
     activeSound:
@@ -514,7 +515,8 @@
     size: Small
     sprite: Objects/Weapons/Melee/e_sword_double-inhands.rsi
   - type: Reflect # Goob edit
-    reflectProb: .8
+    reflectProb: 1
+    otherTypeReflectProb: .4
     spread: 75
   - type: FlipOnHit # WD EDIT
   - type: ThrowableBlocker # Goobstation

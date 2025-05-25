@@ -231,14 +231,14 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 7 # 19 weld dmage is the damage that cap saber has
+        Blunt: 10
         Structural: 12
   - type: Construction
     graph: MetalBaseballBatGraph
     node: final
-  - type: SpeedModifiedOnWield # heavy stuff leh
-    walkModifier: 0.85
-    sprintModifier: 0.85
+  - type: MeleeThrowOnHit
+    distance: 2
+    speed: 5
 
 - type: entity
   id: MakeshiftJammer

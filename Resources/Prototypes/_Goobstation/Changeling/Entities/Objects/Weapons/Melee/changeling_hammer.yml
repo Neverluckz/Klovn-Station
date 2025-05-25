@@ -31,7 +31,7 @@
     attackRate: 0.75
     damage:
       types:
-        Blunt: 20
+        Blunt: 28
         Structural: 50
     heavyStaminaCost: 12
     soundHit:

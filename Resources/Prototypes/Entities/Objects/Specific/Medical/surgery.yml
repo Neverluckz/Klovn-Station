@@ -307,7 +307,7 @@
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 10
+        Brute: 15
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Tool
@@ -330,7 +330,7 @@
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 15
+        Brute: 20
     soundHit:
       path: /Audio/Items/drill_hit.ogg
   - type: Tool
@@ -681,38 +681,3 @@
   - type: Item
     size: Small
     heldPrefix: evil
-  - type: HeldGrantComponent
-    components:
-    - type: SurgeryIgnoreClothing
-
-- type: entity
-  id: OmnimedToolDebug
-  parent: OmnimedToolSyndie
-  suffix: Admeme
-  name: experimental surgical omnitool
-  components:
-  - type: Hemostat
-    speed: 10
-  - type: Scalpel
-    speed: 10
-  - type: Drill
-    speed: 10
-  - type: BoneSetter
-    speed: 10
-  - type: Retractor
-    speed: 10
-  - type: Cautery
-    speed: 10
-  - type: BoneGel
-    speed: 10
-  - type: BoneSaw
-    speed: 10
-  - type: Tweezers
-    speed: 10
-  - type: Tending
-    speed: 10
-  - type: Stitches
-    speed: 10
-  - type: HeldGrantComponent
-    components:
-    - type: SurgeryIgnoreClothing

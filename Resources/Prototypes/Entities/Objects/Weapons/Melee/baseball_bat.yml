@@ -60,7 +60,7 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 10
+        Blunt: 12
         Structural: 5
     soundHit:
       collection: MetalThud
@@ -98,6 +98,9 @@
     tags:
     - BaseballBat
   - type: UndetectableContraband #Goobstation-Contraband detector
+  - type: MeleeThrowOnHit
+    distance: 1
+    speed: 3
 
 - type: entity
   name: incomplete baseball bat

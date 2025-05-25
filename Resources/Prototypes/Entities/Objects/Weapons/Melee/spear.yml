@@ -112,7 +112,7 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Piercing: 12
+        Piercing: 15
     angle: 0
     animation: WeaponArcThrust
     soundHit:
@@ -120,7 +120,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 24 # Goob edit
+        Piercing: 19
   - type: Item
     size: Large # Goob edit
     shape: # Goob
@@ -154,7 +154,7 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Piercing: 6 # Goob edit
+        Piercing: 5
   # Goobstation - nuh uh
   #- type: Damageable
   #  damageContainer: Inorganic
@@ -212,11 +212,11 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Piercing: 15
+        Piercing: 19
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 30 # Goob edit
+        Piercing: 23
   - type: Construction
     graph: SpearReinforced
 
@@ -233,11 +233,11 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Piercing: 18
+        Piercing: 23
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 36 # Goob edit
+        Piercing: 27
   - type: Construction
     graph: SpearPlasma
 
@@ -254,13 +254,13 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Piercing: 10
-        Radiation: 8
+        Piercing: 14.5
+        Radiation: 12.5
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 24 # Goob edit
-        Radiation: 12 # Goob edit
+        Piercing: 16
+        Radiation: 15
   - type: Construction
     graph: SpearUranium
 

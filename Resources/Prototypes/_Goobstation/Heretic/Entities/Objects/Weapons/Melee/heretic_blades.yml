@@ -36,7 +36,7 @@
     wideAnimationRotation: -125
     damage:
       types:
-        Slash: 20
+        Slash: 28
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -78,6 +78,11 @@
     state: icon
   - type: Item
     sprite: _Goobstation/Heretic/Blades/blade_ash-inhand.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Heat: 14
+        Slash: 14
   - type: Cautery
     speed: 1.5
 
@@ -185,3 +190,8 @@
     state: icon
   - type: Item
     sprite: _Goobstation/Heretic/Blades/blade_void-inhand.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Cold: 14
+        Slash: 14

@@ -158,5 +158,5 @@
         volume: -10
     activatedDamage:
       types:
-        Blunt: 8
-        Shock: 16
+        Blunt: 10
+        Shock: 24

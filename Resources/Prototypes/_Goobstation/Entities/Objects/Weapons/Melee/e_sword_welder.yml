@@ -42,8 +42,8 @@
         variation: 0.125
     activatedDamage:
         types:
-            Slash: 5
-            Heat: 10
+            Slash: 7
+            Heat: 15
   - type: ItemToggle
     predictable: false
     soundActivate:
@@ -68,7 +68,7 @@
     reflects:
       - Energy
   - type: Welder
-    fuelConsumption: 3
+    fuelConsumption: 6
   - type: SolutionContainerManager
     solutions:
       Welder:
@@ -144,7 +144,7 @@
     generated:
       reagents:
         - ReagentId: WeldingFuel
-          Quantity: 3 # Cuz fuelConsumption is 3
+          Quantity: 6 # Cuz fuelConsumption is 6
 
 - type: entity
   name: unfinished welder sword

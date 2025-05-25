@@ -154,7 +154,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 10
+        Blunt: 12
     soundHit:
       collection: MetalThud
   - type: Spillable
@@ -163,7 +163,7 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 5
+        Blunt: 8
   - type: Item
     size: Large
     sprite: Objects/Specific/Janitorial/mop.rsi
@@ -209,7 +209,7 @@
     - type: MeleeWeapon
       damage:
         types:
-          Blunt: 10
+          Blunt: 12
       soundHit:
          collection: MetalThud
     - type: Spillable
@@ -218,7 +218,7 @@
     - type: IncreaseDamageOnWield
       damage:
         types:
-          Blunt: 5
+          Blunt: 8
     - type: Item
       size: Large
       sprite: Objects/Specific/Janitorial/advmop.rsi

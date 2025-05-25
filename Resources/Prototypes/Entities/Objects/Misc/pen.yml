@@ -161,7 +161,7 @@
     wideAnimationRotation: -45
     damage:
       types:
-        Piercing: 15
+        Piercing: 18
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Tool
@@ -172,7 +172,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 20 # Goobstation - ow
+        Piercing: 25 # Goobstation - ow
 
 - type: entity
   name: Cybersun pen

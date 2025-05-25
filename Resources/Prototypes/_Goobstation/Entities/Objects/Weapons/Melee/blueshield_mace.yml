@@ -59,8 +59,8 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 13 # Unlucky number
-        Slash: 7 # Lucky number
+        Blunt: 13
+        Slash: 10
     bluntStaminaDamageFactor: 0.5
     animation: WeaponArcThrust
     soundHit:
