@@ -145,8 +145,8 @@
           sprite: Objects/Tanks/oxygen.rsi
           state: icon
         doAfter: 5
-      - material: Cable
-        amount: Plasteel
+      - material: Plasteel
+        amount: 16
 
   - node: plasmaFrame
     entity: UnfinishedWelderSwordExperimental
