@@ -312,7 +312,7 @@ public abstract class SharedRoleSystem : EntitySystem
         if (typeof(T) == typeof(MindRoleComponent))
             throw new InvalidOperationException();
 
-        if (!Resolve(mind.Owner, ref mind.Comp))
+        if (!Resolve(mind.Owner, ref mind.Comp, false)) // KS14
             return false;
 
         var found = false;
