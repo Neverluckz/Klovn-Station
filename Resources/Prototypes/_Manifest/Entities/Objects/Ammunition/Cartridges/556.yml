@@ -22,7 +22,7 @@
   id: Cartridge556
   parent: BaseCartridge556
   name: "5.56×45mm FMJ cartridge"
-  desc: A cartridge of full metal-jacket 5.56×45mm NATO ammunition.
+  description: A cartridge of full metal-jacket 5.56×45mm NATO ammunition.
   components:
   - type: CartridgeAmmo
     proto: Bullet556
@@ -31,7 +31,7 @@
   id: Cartridge556AP
   parent: BaseCartridge556
   name: "5.56×45mm AP cartridge"
-  desc: A cartridge of armor-penetrating 5.56×45mm NATO ammunition.
+  description: A cartridge of armor-penetrating 5.56×45mm NATO ammunition.
   components:
   - type: CartridgeAmmo
     proto: Bullet556AP
@@ -47,7 +47,7 @@
   id: Cartridge556Tracer
   parent: BaseCartridge556
   name: "5.56×45mm L110 tracer cartridge"
-  desc: A cartridge of L110 5.56×45mm NATO ammunition; a tracer cartridge. Glows green.
+  description: A cartridge of L110 5.56×45mm NATO ammunition; a tracer cartridge. Glows green.
   components:
   - type: CartridgeAmmo
     proto: Bullet556Tracer
@@ -63,7 +63,7 @@
   id: Cartridge556HE
   parent: BaseCartridge556
   name: "5.56×45mm HE cartridge"
-  desc: A cartridge of 5.56×45mm high-explosive ammunition.. Right.
+  description: A cartridge of 5.56×45mm high-explosive ammunition.. Right.
   components:
   - type: CartridgeAmmo
     proto: Bullet556HE
