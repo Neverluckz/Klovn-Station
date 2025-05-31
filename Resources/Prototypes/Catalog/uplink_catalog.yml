@@ -198,7 +198,7 @@
   description: uplink-revolver-python-desc
   productEntity: WeaponRevolverPythonAP
   cost:
-    Telecrystal: 20 # goob - Originally was 65 TC but was not used due to high cost. and the same happened at 40 TC. +2 mags = 30 TC.
+    Telecrystal: 25 # goob - Originally was 65 TC but was not used due to high cost. and the same happened at 40 TC. +2 mags = 30 TC.
   categories:
   - UplinkWeaponry
 
@@ -222,7 +222,7 @@
   description: uplink-rifle-mosin-desc
   productEntity: WeaponSniperMosin
   cost:
-    Telecrystal: 4 # goob
+    Telecrystal: 2 # goob
   categories:
   - UplinkWeaponry
 
@@ -269,7 +269,7 @@
   description: uplink-gloves-north-star-desc
   productEntity: ClothingHandsGlovesNorthStar
   cost:
-    Telecrystal: 30 # goob
+    Telecrystal: 25 # goob
   categories:
   - UplinkWeaponry
 
@@ -370,7 +370,7 @@
   description: uplink-explosive-grenade-desc
   productEntity: ExGrenade
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 8 # goob
   categories:
   - UplinkExplosives
   conditions: # Goob, two times cheaper for nukies
@@ -1881,7 +1881,7 @@
   description: uplink-boombox-desc
   productEntity: Boombox
   cost:
-    Telecrystal: 2 # KS14 - epic for gunning down griggers with an L6 therefore its got to be cheap
+    Telecrystal: 2 # KS14 - epic for gunning down tiders with an L6 therefore its got to be cheap
   categories:
   - UplinkPointless
 
