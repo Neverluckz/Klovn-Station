@@ -253,23 +253,24 @@
   - type: LoadMapRule
     preloadedGrid: Lambordeere
 
-- type: entity
-  id: UnknownShuttleManOWar
-  parent: BaseUnknownShuttleRule
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-unknown-shuttle-incoming #Leaving this one because theyre like primitives and its funnier
-    weight: 1 # lower because antags
-    earliestStart: 50 # late to hopefully have enough ghosts to fill all roles quickly. (4) & antags
-    chaos: # Goobstation
+#manowar removed
+#- type: entity
+#  id: UnknownShuttleManOWar
+#  parent: BaseUnknownShuttleRule
+#  components:
+#  - type: StationEvent
+#    startAnnouncement: station-event-unknown-shuttle-incoming #Leaving this one because theyre like primitives and its funnier
+#    weight: 1 # lower because antags
+#    earliestStart: 50 # late to hopefully have enough ghosts to fill all roles quickly. (4) & antags
+#    chaos: # Goobstation
       # it's 4 free agent barely-equipped dudes
-      Hostile: 60
-      Medical: 20
-      Death: 20
-    chaosScore: 360 # Goobstation
-    eventType: HostilesSpawn # Goobstation
-  - type: LoadMapRule
-    preloadedGrid: ManOWar
+#      Hostile: 60
+#      Medical: 20
+#      Death: 20
+#    chaosScore: 360 # Goobstation
+#    eventType: HostilesSpawn # Goobstation
+#  - type: LoadMapRule
+#    preloadedGrid: ManOWar
 
 - type: entity
   id: UnknownShuttleMeatZone
