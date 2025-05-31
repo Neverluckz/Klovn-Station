@@ -1,7 +1,7 @@
 version = 1
-SPDX-PackageName = "Goob Station"
-SPDX-PackageSupplier = "Aidenkrz <administrator@goobstation.com>"
-SPDX-PackageDownloadLocation = "https://www.goobstation.com"
+SPDX-PackageName = "Klovnstation"
+SPDX-PackageSupplier = "bruh21"
+SPDX-PackageDownloadLocation = "game.atmosia.org"
 
 [[annotations]]
 path = ["Resources/Audio/**", "Resources/Textures/**"]
