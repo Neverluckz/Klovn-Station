@@ -544,3 +544,15 @@
 
 - type: Tag
   id: MidroundAntag
+
+- type: Tag
+  id: Chair
+
+- type: Tag
+  id: Telecrystal
+
+- type: Tag
+  id: WeaponPistolJackal
+
+- type: Tag
+  id: TemplarHelmet

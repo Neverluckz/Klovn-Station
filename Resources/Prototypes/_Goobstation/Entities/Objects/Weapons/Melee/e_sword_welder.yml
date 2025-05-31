@@ -64,9 +64,9 @@
         variation: 0.250
   - type: Reflect
     reflectProb: 0.1
-    otherTypeReflectProb: 0
     reflects:
-      - Energy
+    - Energy
+    - NonEnergy
   - type: Welder
     fuelConsumption: 6
   - type: SolutionContainerManager

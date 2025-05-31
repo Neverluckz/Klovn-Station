@@ -217,11 +217,11 @@
       right:
       - state: inhand-right-blade
         shader: unshaded
-  - type: Reflect # Goob edit
-    reflectProb: .5
-    otherTypeReflectProb: .3
+  - type: Reflect
+    reflectProb: 0.4
     reflects:
-      - Energy
+    - Energy
+    - NonEnergy
   - type: IgnitionSource
     temperature: 700
   - type: Tool
@@ -514,10 +514,12 @@
   - type: Item
     size: Small
     sprite: Objects/Weapons/Melee/e_sword_double-inhands.rsi
-  - type: Reflect # Goob edit
-    reflectProb: 1
-    otherTypeReflectProb: .4
-    spread: 75
+  - type: Reflect
+    reflectProb: 0.5
+    reflects:
+    - Energy
+    - NonEnergy
+    - Magic
   - type: FlipOnHit # WD EDIT
   - type: ThrowableBlocker # Goobstation
     blockSound:
