@@ -507,9 +507,6 @@
   id: WoodenHandle
 
 - type: Tag
-  id: WoodenHandle
-
-- type: Tag
   id: WelderIndustrial
 
 - type: Tag
