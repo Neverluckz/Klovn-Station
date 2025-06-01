@@ -1,0 +1,5 @@
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: TeslaGateCircuitboard
+  icon: { sprite: _KS14/Structures/Machines/teslagate.rsi, state: base }
+  result: TeslaGateCircuitboard
