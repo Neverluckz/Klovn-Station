@@ -5,4 +5,4 @@
   - !type:PowerWireAction
   - !type:TeslaGateSafetyWireAction
   - !type:TeslaGateForceWireAction
-  #- !type:TeslaGateAuxWireAction # dis is broken
+  #- !type:TeslaGateAuxWireAction # this makes PVS shit itself

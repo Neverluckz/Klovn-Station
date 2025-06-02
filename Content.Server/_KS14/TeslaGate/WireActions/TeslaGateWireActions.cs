@@ -103,6 +103,7 @@ public sealed partial class TeslaGateForceWireAction : BaseToggleWireAction
     }
 }
 
+// TODO: Fix
 public sealed partial class TeslaGateAuxWireAction : BaseToggleWireAction
 {
     private TeslaGateSystem _teslaGateSystem = default!;
