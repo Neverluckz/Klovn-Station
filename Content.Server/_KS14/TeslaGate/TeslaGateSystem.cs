@@ -40,7 +40,7 @@ public sealed class TeslaGateSystem : SharedTeslaGateSystem
         while (query.MoveNext(out var uid, out var teslaGateComponent))
         {
             var teslaGate = (uid, teslaGateComponent);
-            var canShock = CanWork(uid, teslaGateComponent);
+            var canShock = CanWork(uid, teslaGateComponent, out var canStart);
 
             if (teslaGateComponent.IsTimerWireCut)
                 continue;
@@ -52,6 +52,9 @@ public sealed class TeslaGateSystem : SharedTeslaGateSystem
 
                 continue;
             }
+
+            if (!canStart)
+                continue;
 
             teslaGateComponent.PulseAccumulator += frameTime;
 
@@ -65,12 +68,23 @@ public sealed class TeslaGateSystem : SharedTeslaGateSystem
 
     // im not gonna give it `ent<comp>` and then just convert that back to `entuid, comp` if im inlining it, that just sounds stupid
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private bool CanWork(EntityUid uid, TeslaGateComponent teslaGateComponent)
+    private bool CanStartWork(EntityUid uid, TeslaGateComponent teslaGateComponent)
     {
+        if (!_powerReceiverSystem.IsPowered(uid))
+            return false;
+
+        return true;
+    }
+
+    // HELP
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private bool CanWork(EntityUid uid, TeslaGateComponent teslaGateComponent, out bool canStart)
+    {
+        canStart = CanStartWork(uid, teslaGateComponent);
         if (!teslaGateComponent.Enabled)
             return false;
 
-        if (!_powerReceiverSystem.IsPowered(uid))
+        if (!canStart)
             return false;
 
         return true;
@@ -121,7 +135,8 @@ public sealed class TeslaGateSystem : SharedTeslaGateSystem
     {
         var (uid, teslaGateComponent) = teslaGate;
 
-        _audioSystem.PlayPvs(teslaGateComponent.StartingSound, uid);
+        if (CanStartWork(uid, teslaGateComponent))
+            _audioSystem.PlayPvs(teslaGateComponent.StartingSound, uid);
 
         ResetAccumulator(teslaGateComponent);
         teslaGateComponent.Enabled = true;
@@ -137,12 +152,11 @@ public sealed class TeslaGateSystem : SharedTeslaGateSystem
 
     public override void OnPowerChange(Entity<TeslaGateComponent> teslaGate, ref PowerChangedEvent args)
     {
-        UpdateAppearance(teslaGate, args.Powered, teslaGate.Comp.CurrentlyShocking ? TeslaGateVisualState.Active : TeslaGateVisualState.Inactive);
-
-        if (_powerReceiverSystem.IsPowered(teslaGate.Owner))
+        // dont care if its already enabled
+        if (args.Powered)
+            Enable(teslaGate);
+        else
             Disable(teslaGate);
-
-        Dirty(teslaGate);
     }
 
     private void CollideAct(TeslaGateComponent teslaGateComponent, EntityUid otherEntity)
