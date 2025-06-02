@@ -83,8 +83,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-#KS14
-
 - type: alertLevels
   id: stationAlerts
   defaultLevel: green
