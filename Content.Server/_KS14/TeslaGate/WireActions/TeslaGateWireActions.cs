@@ -5,7 +5,7 @@ using Content.Shared.Wires;
 
 namespace Content.Server.KS14.TeslaGate;
 
-public sealed partial class TeslaGateSafetyWireAction : BaseToggleWireAction
+public sealed partial class TeslaGateSafetyWireAction : ComponentWireAction<TeslaGateComponent>
 {
     public override string Name { get; set; } = "wire-name-teslagate-safety";
 
@@ -13,11 +13,12 @@ public sealed partial class TeslaGateSafetyWireAction : BaseToggleWireAction
 
     public override object? StatusKey { get; } = TeslaGateSafetyWireKey.StatusKey;
 
-    public override void ToggleValue(EntityUid owner, bool setting)
-    {
-        if (!EntityManager.TryGetComponent<TeslaGateComponent>(owner, out var teslaGateComponent))
-            return;
 
+    [DataField("timeout")]
+    private int _timeout = 15;
+
+    private void SetSafety(EntityUid owner, TeslaGateComponent teslaGateComponent, bool setting)
+    {
         var isHacked = !setting;
         teslaGateComponent.IsIntervalHacked = isHacked;
 
@@ -25,14 +26,56 @@ public sealed partial class TeslaGateSafetyWireAction : BaseToggleWireAction
             teslaGateComponent.PulseInterval = teslaGateComponent.HackedPulseInterval;
         else
             teslaGateComponent.PulseInterval = teslaGateComponent.DefaultPulseInterval;
+
+        teslaGateComponent.IsTimerWireCut = setting;
     }
 
-    public override bool GetValue(EntityUid owner) => EntityManager.TryGetComponent<TeslaGateComponent>(owner, out var teslaGateComponent)
-        && teslaGateComponent.IsIntervalHacked;
-
-    public override StatusLightState? GetLightState(Wire wire)
+    public override bool Cut(EntityUid user, Wire wire, TeslaGateComponent teslaGateComponent)
     {
-        if (!EntityManager.TryGetComponent<TeslaGateComponent>(wire.Owner, out var teslaGateComponent))
+        var owner = wire.Owner;
+
+        SetSafety(owner, teslaGateComponent, false);
+        WiresSystem.TryCancelWireAction(owner, TeslaGateSafetyWireKey.StatusKey);
+        teslaGateComponent.IsTimerWireCut = true;
+
+        return true;
+    }
+
+    public override bool Mend(EntityUid user, Wire wire, TeslaGateComponent teslaGateComponent)
+    {
+        SetSafety(wire.Owner, teslaGateComponent, true);
+        teslaGateComponent.IsTimerWireCut = false;
+
+        return true;
+    }
+
+    public override void Pulse(EntityUid user, Wire wire, TeslaGateComponent teslaGateComponent)
+    {
+        var owner = wire.Owner;
+
+        SetSafety(owner, teslaGateComponent, false);
+        WiresSystem.StartWireAction(owner, _timeout, TeslaGateSafetyWireKey.StatusKey, new TimedWireEvent(AwaitSafetyTimerFinish, wire));
+    }
+
+    public override void Update(Wire wire)
+    {
+        if (!IsPowered(wire.Owner))
+            WiresSystem.TryCancelWireAction(wire.Owner, TeslaGateSafetyWireKey.StatusKey);
+    }
+
+    private void AwaitSafetyTimerFinish(Wire wire)
+    {
+        var owner = wire.Owner;
+        if (!EntityManager.TryGetComponent<TeslaGateComponent>(owner, out var teslaGateComponent))
+            return;
+
+        if (!wire.IsCut)
+            SetSafety(owner, teslaGateComponent, true);
+    }
+
+    public override StatusLightState? GetLightState(Wire wire, TeslaGateComponent teslaGateComponent)
+    {
+        if (!teslaGateComponent.Enabled)
             return StatusLightState.Off;
 
         return teslaGateComponent.IsIntervalHacked
@@ -41,7 +84,7 @@ public sealed partial class TeslaGateSafetyWireAction : BaseToggleWireAction
     }
 }
 
-public sealed partial class TeslaGateForceWireAction : BaseToggleWireAction
+public sealed partial class TeslaGateForceWireAction : ComponentWireAction<TeslaGateComponent>
 {
     private TeslaGateSystem _teslaGateSystem = default!;
 
@@ -58,7 +101,6 @@ public sealed partial class TeslaGateForceWireAction : BaseToggleWireAction
         _teslaGateSystem = EntityManager.System<TeslaGateSystem>();
     }
 
-    // i dont like replicating ugly code
     private bool TryGetGateEnt(Wire wire, [NotNullWhen(true)] out Entity<TeslaGateComponent>? teslaGate)
     {
         var owner = wire.Owner;
@@ -72,39 +114,38 @@ public sealed partial class TeslaGateForceWireAction : BaseToggleWireAction
         return true;
     }
 
-    public override void ToggleValue(EntityUid owner, bool setting) { }
-    public override void Pulse(EntityUid user, Wire wire)
+    public override bool Cut(EntityUid user, Wire wire, TeslaGateComponent teslaGateComponent)
     {
-        base.Pulse(user, wire);
+        teslaGateComponent.IsForceHacked = true;
+        return true;
+    }
+
+    public override bool Mend(EntityUid user, Wire wire, TeslaGateComponent teslaGateComponent)
+    {
+        teslaGateComponent.IsForceHacked = false;
+        return true;
+    }
+
+    public override void Pulse(EntityUid user, Wire wire, TeslaGateComponent teslaGateComponent)
+    {
         if (wire.IsCut)
             return;
 
-        if (!TryGetGateEnt(wire, out var teslaGate))
-            return;
-
-        var (owner, teslaGateComponent) = teslaGate.Value;
-
+        // if it was enabled & hacked, turn it off
         teslaGateComponent.IsForceHacked = !teslaGateComponent.IsForceHacked;
-        if (teslaGateComponent.IsAuxWireCut && teslaGateComponent.IsForceHacked && teslaGateComponent.Enabled)
-            _teslaGateSystem.Disable(teslaGate.Value);
+        if (!teslaGateComponent.IsForceHacked && teslaGateComponent.Enabled)
+            _teslaGateSystem.Disable((wire.Owner, teslaGateComponent));
     }
 
-    public override bool GetValue(EntityUid owner) => EntityManager.TryGetComponent<TeslaGateComponent>(owner, out var teslaGateComponent)
-        && teslaGateComponent.IsForceHacked;
-
-    public override StatusLightState? GetLightState(Wire wire)
+    public override StatusLightState? GetLightState(Wire wire, TeslaGateComponent teslaGateComponent)
     {
-        if (!EntityManager.TryGetComponent<TeslaGateComponent>(wire.Owner, out var teslaGateComponent))
-            return StatusLightState.Off;
-
         return teslaGateComponent.IsForceHacked
-            ? StatusLightState.On
-            : StatusLightState.Off;
+            ? StatusLightState.Off
+            : StatusLightState.On;
     }
 }
 
-// TODO: Fix
-public sealed partial class TeslaGateAuxWireAction : BaseToggleWireAction
+public sealed partial class TeslaGateAuxWireAction : ComponentWireAction<TeslaGateComponent>
 {
     private TeslaGateSystem _teslaGateSystem = default!;
 
@@ -121,64 +162,36 @@ public sealed partial class TeslaGateAuxWireAction : BaseToggleWireAction
         _teslaGateSystem = EntityManager.System<TeslaGateSystem>();
     }
 
-    // i dont like replicating ugly code (however i did it again)
-    private bool TryGetGateEnt(Wire wire, [NotNullWhen(true)] out Entity<TeslaGateComponent>? teslaGate)
+    public override bool Cut(EntityUid user, Wire wire, TeslaGateComponent teslaGateComponent)
     {
         var owner = wire.Owner;
-        if (!EntityManager.TryGetComponent<TeslaGateComponent>(owner, out var teslaGateComponent))
-        {
-            teslaGate = null;
-            return false;
-        }
-
-        teslaGate = (owner, teslaGateComponent);
-        return true;
-    }
-
-    public override void ToggleValue(EntityUid owner, bool setting) { }
-
-    public override bool Cut(EntityUid user, Wire wire)
-    {
-        if (!base.Cut(user, wire))
-            return false;
-
-        if (!TryGetGateEnt(wire, out var teslaGate))
-            return false;
-
-        var (_, teslaGateComponent) = teslaGate.Value;
 
         teslaGateComponent.IsAuxWireCut = true;
         if (teslaGateComponent.Enabled && teslaGateComponent.IsForceHacked)
-            _teslaGateSystem.Disable(teslaGate.Value);
+            _teslaGateSystem.Disable((owner, teslaGateComponent));
 
         return true;
     }
 
-    public override bool Mend(EntityUid user, Wire wire)
+    public override bool Mend(EntityUid user, Wire wire, TeslaGateComponent teslaGateComponent)
     {
-        if (!base.Mend(user, wire))
-            return false;
-
-        if (!TryGetGateEnt(wire, out var teslaGate))
-            return false;
-
-        var (_, teslaGateComponent) = teslaGate.Value;
+        var owner = wire.Owner;
 
         teslaGateComponent.IsAuxWireCut = false;
         if (!teslaGateComponent.Enabled && teslaGateComponent.IsForceHacked)
-            _teslaGateSystem.Enable(teslaGate.Value);
+            _teslaGateSystem.Enable((owner, teslaGateComponent));
 
         return true;
     }
 
-    public override bool GetValue(EntityUid owner) => EntityManager.TryGetComponent<TeslaGateComponent>(owner, out var teslaGateComponent)
-        && teslaGateComponent.Enabled;
-
-    public override StatusLightState? GetLightState(Wire wire)
+    public override void Pulse(EntityUid user, Wire wire, TeslaGateComponent teslaGateComponent)
     {
-        if (!EntityManager.TryGetComponent<TeslaGateComponent>(wire.Owner, out var teslaGateComponent))
-            return StatusLightState.Off;
+        if (!teslaGateComponent.Enabled && teslaGateComponent.IsForceHacked)
+            _teslaGateSystem.Enable((wire.Owner, teslaGateComponent));
+    }
 
+    public override StatusLightState? GetLightState(Wire wire, TeslaGateComponent teslaGateComponent)
+    {
         return teslaGateComponent.Enabled
             ? StatusLightState.On
             : StatusLightState.Off;

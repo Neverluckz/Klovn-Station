@@ -25,17 +25,12 @@ public abstract class SharedTeslaGateSystem : EntitySystem
 
     public bool IsFinishedShocking(TeslaGateComponent teslaGateComponent) => _gameTiming.CurTime > teslaGateComponent.LastShockTime + teslaGateComponent.ShockLength;
 
-    protected void UpdateAppearance(Entity<TeslaGateComponent> teslaGate, bool active)
+    protected void UpdateAppearance(Entity<TeslaGateComponent> teslaGate, bool active, TeslaGateVisualState state)
     {
         var (uid, teslaGateComponent) = teslaGate;
 
-        _appearanceSystem.SetData(teslaGate, TeslaGateVisuals.ShockingState, active);
+        _appearanceSystem.SetData(teslaGate, TeslaGateVisuals.ShockingState, state);
         _pointLight.SetEnabled(uid, active);
     }
-    private void OnPowerChange(Entity<TeslaGateComponent> teslaGate, ref PowerChangedEvent args)
-    {
-        //var (uid, teslaGateComponent) = teslaGate;
-        UpdateAppearance(teslaGate, args.Powered);
-        Dirty(teslaGate);
-    }
+    public abstract void OnPowerChange(Entity<TeslaGateComponent> teslaGate, ref PowerChangedEvent args);
 }

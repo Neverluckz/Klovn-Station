@@ -10,7 +10,7 @@ using Robust.Shared.Utility;
 namespace Content.Shared.KS14.TeslaGate;
 
 /// <summary>
-/// This is used for...
+/// This is used for tesla gate and storing the time it has to / from the next pulse
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class TeslaGateComponent : Component
@@ -28,6 +28,13 @@ public sealed partial class TeslaGateComponent : Component
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool Enabled = false;
+
+    /// <summary>
+    /// Whether this tesla gate's timer is cut.
+    /// Determines whether the gate will automatically turn on or off.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public bool IsTimerWireCut = false;
 
     /// <summary>
     /// Whether this tesla gate's aux wire is cut.
@@ -74,8 +81,6 @@ public sealed partial class TeslaGateComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public SoundSpecifier? StartingSound = new SoundPathSpecifier(new ResPath("/Audio/Effects/poster_being_set.ogg"));
 
-
-
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float ShockDamage = 75f;
 }
@@ -86,24 +91,16 @@ public enum TeslaGateVisuals : byte { ShockingState }
 [Serializable, NetSerializable]
 public enum TeslaGateVisualState : byte
 {
-    Active,
     Inactive,
+    Ready,
+    Active,
 }
 
 [Serializable, NetSerializable]
-public enum TeslaGateSafetyWireKey : byte
-{
-    StatusKey,
-}
+public enum TeslaGateSafetyWireKey : byte { StatusKey }
 
 [Serializable, NetSerializable]
-public enum TeslaGateForceWireKey : byte
-{
-    StatusKey,
-}
+public enum TeslaGateForceWireKey : byte { StatusKey }
 
-public enum TeslaGateAuxWireKey : byte
-{
-    StatusKey,
-}
-
+[Serializable, NetSerializable]
+public enum TeslaGateAuxWireKey : byte { StatusKey }

@@ -18,8 +18,13 @@
     visuals:
       enum.TeslaGateVisuals.ShockingState:
         electricity:
-          True: { state: elec_anim }
-          False: { state: none }
+          Inactive: { state: none }
+          #Ready: { state: none }
+          Active: { state: elec_anim }
+        #sparks:
+          #Inactive: { state: none }
+          #Ready: { state: none } # we dont use this rn
+          #Active: { state: coils_ready }
   - type: Machine
     board: TeslaGateCircuitboard
   - type: Sprite
@@ -31,6 +36,9 @@
     - state: none
       shader: unshaded
       map: ["electricity"]
+    #- state: none
+    #  shader: unshaded
+    #  map: ["sparks"]
     - state: wires
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Fixtures

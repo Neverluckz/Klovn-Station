@@ -10,6 +10,8 @@ using Robust.Shared.Timing;
 using System.Runtime.CompilerServices;
 using DependencyAttribute = Robust.Shared.IoC.DependencyAttribute;
 using Content.Server.AlertLevel;
+using Linguini.Bundle.Errors;
+using Content.Shared.Power;
 
 namespace Content.Server.KS14.TeslaGate;
 
@@ -38,9 +40,10 @@ public sealed class TeslaGateSystem : SharedTeslaGateSystem
         while (query.MoveNext(out var uid, out var teslaGateComponent))
         {
             var teslaGate = (uid, teslaGateComponent);
-            teslaGateComponent.PulseAccumulator += frameTime;
-
             var canShock = CanWork(uid, teslaGateComponent);
+
+            if (teslaGateComponent.IsTimerWireCut)
+                continue;
 
             if (teslaGateComponent.CurrentlyShocking)
             {
@@ -49,6 +52,8 @@ public sealed class TeslaGateSystem : SharedTeslaGateSystem
 
                 continue;
             }
+
+            teslaGateComponent.PulseAccumulator += frameTime;
 
             if (teslaGateComponent.PulseAccumulator < teslaGateComponent.PulseInterval.TotalSeconds)
                 continue;
@@ -62,10 +67,8 @@ public sealed class TeslaGateSystem : SharedTeslaGateSystem
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private bool CanWork(EntityUid uid, TeslaGateComponent teslaGateComponent)
     {
-        var hackedToForce = teslaGateComponent.IsForceHacked;
-
         if (!teslaGateComponent.Enabled)
-            return hackedToForce;
+            return false;
 
         if (!_powerReceiverSystem.IsPowered(uid))
             return false;
@@ -81,7 +84,7 @@ public sealed class TeslaGateSystem : SharedTeslaGateSystem
 
         _audioSystem.PlayPvs(teslaGateComponent.ShockSound, uid);
 
-        UpdateAppearance(teslaGate, true);
+        UpdateAppearance(teslaGate, true, TeslaGateVisualState.Active);
         Dirty(teslaGate);
 
         teslaGateComponent.CurrentlyShocking = true;
@@ -96,10 +99,16 @@ public sealed class TeslaGateSystem : SharedTeslaGateSystem
         teslaGateComponent.CurrentlyShocking = false;
         teslaGateComponent.ThingsBeingShocked.Clear();
 
-        UpdateAppearance(teslaGate, false);
+        UpdateAppearance(teslaGate, false, TeslaGateVisualState.Inactive);
         Dirty(teslaGate);
 
         _audioSystem.PlayPvs(teslaGateComponent.StartingSound, uid);
+    }
+
+    private void ResetAccumulator(TeslaGateComponent teslaGateComponent)
+    {
+        teslaGateComponent.PulseAccumulator = 0f;
+        teslaGateComponent.LastShockTime = TimeSpan.MinValue;
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -113,6 +122,8 @@ public sealed class TeslaGateSystem : SharedTeslaGateSystem
         var (uid, teslaGateComponent) = teslaGate;
 
         _audioSystem.PlayPvs(teslaGateComponent.StartingSound, uid);
+
+        ResetAccumulator(teslaGateComponent);
         teslaGateComponent.Enabled = true;
     }
 
@@ -121,7 +132,17 @@ public sealed class TeslaGateSystem : SharedTeslaGateSystem
         var (uid, teslaGateComponent) = teslaGate;
 
         teslaGateComponent.Enabled = false;
-        teslaGateComponent.PulseAccumulator = 0f;
+        ResetAccumulator(teslaGateComponent);
+    }
+
+    public override void OnPowerChange(Entity<TeslaGateComponent> teslaGate, ref PowerChangedEvent args)
+    {
+        UpdateAppearance(teslaGate, args.Powered, teslaGate.Comp.CurrentlyShocking ? TeslaGateVisualState.Active : TeslaGateVisualState.Inactive);
+
+        if (_powerReceiverSystem.IsPowered(teslaGate.Owner))
+            Disable(teslaGate);
+
+        Dirty(teslaGate);
     }
 
     private void CollideAct(TeslaGateComponent teslaGateComponent, EntityUid otherEntity)
@@ -147,8 +168,6 @@ public sealed class TeslaGateSystem : SharedTeslaGateSystem
             return;
 
         var alertLevel = alertEvent.AlertLevel;
-        //if (alertLevelComponent.AlertLevels == null || !alertLevelComponent.AlertLevels.Levels.TryGetValue(alertLevel, out var details))
-        //    return;
 
         var query = EntityQueryEnumerator<TeslaGateComponent>();
         while (query.MoveNext(out var uid, out var teslaGateComponent))
