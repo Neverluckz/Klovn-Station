@@ -5,4 +5,4 @@
   - !type:PowerWireAction
   - !type:TeslaGateSafetyWireAction
   - !type:TeslaGateForceWireAction
-  - !type:TeslaGateAuxWireAction
+  #- !type:TeslaGateAuxWireAction # dis is broken

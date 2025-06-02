@@ -21,7 +21,7 @@ public sealed partial class TeslaGateComponent : Component
     public bool CurrentlyShocking = false;
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public HashSet<EntityUid> ThingsBeingShocked = new();
+    public HashSet<NetEntity> ThingsBeingShocked = new();
 
     [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan LastShockTime = TimeSpan.MinValue;
@@ -32,13 +32,13 @@ public sealed partial class TeslaGateComponent : Component
     /// <summary>
     /// Whether this tesla gate's aux wire is cut.
     /// </summary>
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
     public bool IsAuxWireCut = false;
 
     /// <summary>
     /// Whether this tesla gate's pulse interval is hacked via wires.
     /// </summary>
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
     public bool IsIntervalHacked = false;
 
     /// <summary>
@@ -51,7 +51,7 @@ public sealed partial class TeslaGateComponent : Component
     /// Which alert levels does the tesla gate automatically turn on at?
     /// Must be lowercase.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public List<string> EnabledAlertLevels = new() { "red", "violet", "epsilon", "delta", "gamma", "omicron" };
 
 

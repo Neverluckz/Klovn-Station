@@ -126,7 +126,7 @@ public sealed class TeslaGateSystem : SharedTeslaGateSystem
 
     private void CollideAct(TeslaGateComponent teslaGateComponent, EntityUid otherEntity)
     {
-        if (!teslaGateComponent.ThingsBeingShocked.Add(otherEntity))
+        if (!teslaGateComponent.ThingsBeingShocked.Add(GetNetEntity(otherEntity)))
             return;
 
         var damage = new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>("Shock"), teslaGateComponent.ShockDamage);

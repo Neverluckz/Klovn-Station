@@ -86,8 +86,8 @@
     pulseInterval: 1.5
 
 - type: entity
-  id: TeslaGateCircuitboard
   parent: BaseMachineCircuitboard
+  id: TeslaGateCircuitboard
   name: tesla gate machine board
   description: An electronics board used in contraband detector.
   components:
@@ -100,9 +100,6 @@
       Capacitor: 3
   - type: StaticPrice
     price: 1000
-  - type: Tag
-    tags:
-    - TeslaGateCircuitboard
 
 - type: entity
   parent: BaseFlatpack

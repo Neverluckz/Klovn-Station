@@ -32,7 +32,7 @@ public sealed partial class TeslaGateSafetyWireAction : BaseToggleWireAction
 
     public override StatusLightState? GetLightState(Wire wire)
     {
-        if (!EntityManager.TryGetComponent<TeslaGateComponent>(wire.Owner, out var teslaGateComponent) || !teslaGateComponent.Enabled)
+        if (!EntityManager.TryGetComponent<TeslaGateComponent>(wire.Owner, out var teslaGateComponent))
             return StatusLightState.Off;
 
         return teslaGateComponent.IsIntervalHacked
