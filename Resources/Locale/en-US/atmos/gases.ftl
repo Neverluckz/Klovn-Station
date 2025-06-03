@@ -13,3 +13,9 @@ gas-plasma-abbreviation = P
 gas-tritium-abbreviation = T
 gas-water-vapor-abbreviation = H₂O
 gas-unknown-abbreviation = X
+
+# funky gas port:
+gas-bz-abbreviation = bz
+gas-healium-abbreviation = he
+gas-nitrium-abbreviation = nit
+gas-pluoxium-abbreviation = plox
