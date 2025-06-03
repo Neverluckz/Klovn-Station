@@ -582,10 +582,11 @@ namespace Content.Server.Atmos.EntitySystems
                 _currentRunAtmosphereIndex = 0;
                 _currentRunAtmosphere.Clear();
 
-                var query = EntityQueryEnumerator<GridAtmosphereComponent, GasTileOverlayComponent, MapGridComponent, TransformComponent>();
-                while (query.MoveNext(out var uid, out var atmos, out var overlay, out var grid, out var xform ))
+                // EE performance port: changed query from having `TransformComponent` to just using `Transform(EntUid)`.
+                var query = EntityQueryEnumerator<GridAtmosphereComponent, GasTileOverlayComponent, MapGridComponent>();
+                while (query.MoveNext(out var uid, out var atmos, out var overlay, out var grid))
                 {
-                    _currentRunAtmosphere.Add((uid, atmos, overlay, grid, xform));
+                    _currentRunAtmosphere.Add((uid, atmos, overlay, grid, Transform(uid)));
                 }
             }
 
