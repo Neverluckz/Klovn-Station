@@ -1,30 +1,13 @@
 - type: entity
   id: FireSensor
+  parent: AirSensorBase
   name: fire sensor
   description: A special air sensor that trips when the tile it's on is on fire.
   placement:
     mode: SnapgridCenter
   components:
-    - type: DeviceNetwork
-      deviceNetId: AtmosDevices
-      receiveFrequencyId: AtmosMonitor
-      transmitFrequencyId: AtmosMonitor
-      prefix: device-address-prefix-sensor
-      sendBroadcastAttemptEvent: true
-      examinableAddress: true
-    - type: WiredNetworkConnection
-    - type: DeviceNetworkRequiresPower
-    - type: AtmosDevice
     - type: AtmosMonitor
       monitorFire: true
-    - type: Tag
-      tags:
-        - AirSensor
-        - ForceFixRotations
-    - type: GuideHelp
-      guides:
-        - DeviceMonitoringAndControl
-        - AtmosphericsSystems
     - type: Transform
       anchored: true
     - type: Damageable
