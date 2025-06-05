@@ -93,6 +93,9 @@ public sealed partial class AtmosMonitorComponent : Component
     [DataField]
     public bool MonitorsPipeNet = false;
 
+    [DataField]
+    public bool IsOnFire = false;
+
     /// <summary>
     /// Specifies the name of the pipe node that this device is monitoring.
     /// </summary>

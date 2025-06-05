@@ -49,6 +49,7 @@
     syncWith:
       - FireAlarm
       - AirSensor
+      - FireSensor
       - GasVent
       - GasScrubber
     monitorAlertTypes:
