@@ -29,6 +29,18 @@
         },
         {
             "name": "coils_ready"
+        },
+        {
+            "name": "elec1"
+        },
+        {
+            "name": "elec2"
+        },
+        {
+            "name": "eleca1"
+        },
+        {
+            "name": "eleca2"
         }
     ]
 }
