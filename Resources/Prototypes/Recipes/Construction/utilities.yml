@@ -416,7 +416,7 @@
   canRotate: true
 
 - type: construction
-  name: air sensor
+  name: fire sensor
   id: FireSensor
   graph: FireSensor
   startNode: start
