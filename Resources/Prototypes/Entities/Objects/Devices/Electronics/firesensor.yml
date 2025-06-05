@@ -41,6 +41,9 @@
     - type: AccessReader
       access: [ [ "Atmospherics" ] ]
     - type: Appearance
+    - type: Construction
+      graph: FireSensor
+      node: sensor
     - type: Sprite
       drawdepth: FloorObjects
       sprite: Structures/Specific/Atmospherics/sensor.rsi
