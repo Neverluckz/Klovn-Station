@@ -5,8 +5,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-server-currency-name-singular = Durk Coin
-server-currency-name-plural = Durk Coins
+server-currency-name-singular = Kloin
+server-currency-name-plural = Kloins
 
 ## Commands
 
@@ -64,10 +64,10 @@ gs-balanceui-shop-footer = ⚠ Ahelp to use your token. Only 1 use per day.
 gs-balanceui-shop-token-label = Tokens
 gs-balanceui-shop-tittle-label = Titles
 
-gs-balanceui-shop-buy-token-admin = Buy Trial Admin - {$price} Durk Coins
-gs-balanceui-shop-buy-token-antag = Buy an Antag Token - {$price} Durk Coins
-gs-balanceui-shop-buy-token-admin-abuse = Buy an Admin Abuse Token - {$price} Durk Coins
-gs-balanceui-shop-buy-token-hat = Buy a Hat Token - {$price} Durk Coins
+gs-balanceui-shop-buy-token-admin = Buy Trial Admin - {$price} Kloins
+gs-balanceui-shop-buy-token-antag = Buy an Antag Token - {$price} Kloins
+gs-balanceui-shop-buy-token-admin-abuse = Buy an Admin Abuse Token - {$price} Kloins
+gs-balanceui-shop-buy-token-hat = Buy a Hat Token - {$price} Kloins
 
 gs-balanceui-shop-token-admin = Trial Admin
 gs-balanceui-shop-token-antag = High Tier Antag Token
