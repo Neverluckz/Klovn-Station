@@ -56,7 +56,7 @@
   id: EngineeringBoardsStatic
   recipes:
   - SpaceHeaterMachineCircuitBoard
-  - ElectrolyzerMachineBoard # Assmos - /tg/ gases
+  - ElectrolyzerMachineCircuitboard # Assmos - /tg/ gases
 
 ## Dynamic
 

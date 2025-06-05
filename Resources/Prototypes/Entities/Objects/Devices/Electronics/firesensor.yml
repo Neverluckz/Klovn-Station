@@ -35,6 +35,9 @@
           restitution: 0.3
           friction: 0.2
     - type: Clickable
+    - type: Tag
+      tags:
+        - AirSensor
     - type: InteractionOutline
     - type: ApcPowerReceiver
     - type: ExtensionCableReceiver
