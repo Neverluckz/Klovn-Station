@@ -12,46 +12,47 @@ namespace Content.Shared.KS14.TeslaGate;
 /// <summary>
 /// This is used for tesla gate and storing the time it has to / from the next pulse
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class TeslaGateComponent : Component
 {
     public float PulseAccumulator = 0f;
 
     // this is just to make it easier to work with
+    [AutoNetworkedField]
     public bool CurrentlyShocking = false;
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public HashSet<NetEntity> ThingsBeingShocked = new();
 
-    [ViewVariables(VVAccess.ReadOnly)]
+    [AutoPausedField, ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan LastShockTime = TimeSpan.MinValue;
 
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [AutoNetworkedField, DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool Enabled = false;
 
     /// <summary>
     /// Whether this tesla gate's timer is cut.
     /// Determines whether the gate will automatically turn on or off.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    [AutoNetworkedField, ViewVariables(VVAccess.ReadOnly)]
     public bool IsTimerWireCut = false;
 
     /// <summary>
     /// Whether this tesla gate's aux wire is cut.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    [ViewVariables(VVAccess.ReadOnly)]
     public bool IsAuxWireCut = false;
 
     /// <summary>
     /// Whether this tesla gate's pulse interval is hacked via wires.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    [ViewVariables(VVAccess.ReadOnly)]
     public bool IsIntervalHacked = false;
 
     /// <summary>
     /// Whether this tesla gate is hacked to force it to be on.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    [ViewVariables(VVAccess.ReadOnly)]
     public bool IsForceHacked = false;
 
     /// <summary>
@@ -82,7 +83,7 @@ public sealed partial class TeslaGateComponent : Component
     public SoundSpecifier? StartingSound = new SoundPathSpecifier(new ResPath("/Audio/Effects/poster_being_set.ogg"));
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float ShockDamage = 75f;
+    public float ShockDamage = 50f;
 }
 
 [Serializable, NetSerializable]

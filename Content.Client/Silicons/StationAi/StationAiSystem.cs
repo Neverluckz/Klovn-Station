@@ -39,6 +39,7 @@ public sealed partial class StationAiSystem : SharedStationAiSystem
         base.Initialize();
         InitializeAirlock();
         InitializePowerToggle();
+        InitializeTeslagateInteraction(); // << KS14 Edit - Teslagates
 
         SubscribeLocalEvent<StationAiOverlayComponent, LocalPlayerAttachedEvent>(OnAiAttached);
         SubscribeLocalEvent<StationAiOverlayComponent, LocalPlayerDetachedEvent>(OnAiDetached);

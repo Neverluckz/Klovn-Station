@@ -6,3 +6,4 @@
   - !type:TeslaGateSafetyWireAction
   - !type:TeslaGateForceWireAction
   - !type:TeslaGateAuxWireAction
+  - !type:AiInteractWireAction

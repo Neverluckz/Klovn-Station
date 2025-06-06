@@ -5,10 +5,22 @@
   id: TeslaGate
   name: tesla gate
   suffix: "1x1, 3.2 sec"
-  description: It keeps people like you from walking through
+  description: It keeps people like you from walking through. Looks sturdy. There's a label on the side
   placement:
     mode: SnapgridCenter
   components:
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 950
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: StationAiWhitelist
   - type: Transform
     noRot: false
   - type: Physics
@@ -19,12 +31,12 @@
       enum.TeslaGateVisuals.ShockingState:
         electricity:
           Inactive: { state: none }
-          #Ready: { state: none }
+          Ready: { state: none }
           Active: { state: elec_anim }
-        #sparks:
-          #Inactive: { state: none }
-          #Ready: { state: none } # we dont use this rn
-          #Active: { state: coils_ready }
+        sparks:
+          Inactive: { state: none }
+          Ready: { state: coil_anim }
+          Active: { state: coil_anim }
   - type: Machine
     board: TeslaGateCircuitboard
   - type: Sprite
@@ -33,14 +45,14 @@
     noRot: true
     layers:
     - state: base
+    - state: wires
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - state: none
+      shader: unshaded
+      map: ["sparks"]
     - state: none
       shader: unshaded
       map: ["electricity"]
-    #- state: none
-    #  shader: unshaded
-    #  map: ["sparks"]
-    - state: wires
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Fixtures
     fixtures:
       fix1:
@@ -76,6 +88,8 @@
     interfaces:
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
+      enum.AiUi.Key:
+        type: StationAiBoundUserInterface
   - type: PointLight
     enabled: false
     color: "#4080FF"

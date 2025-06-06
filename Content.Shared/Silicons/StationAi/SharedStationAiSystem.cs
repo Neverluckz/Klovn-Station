@@ -113,6 +113,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         InitializeAirlock();
         InitializeHeld();
         InitializeLight();
+        InitializeTeslagate(); // << KS14 Edit - Teslagates
 
         SubscribeLocalEvent<StationAiWhitelistComponent, BoundUserInterfaceCheckRangeEvent>(OnAiBuiCheck);
 

@@ -10,11 +10,11 @@ using Robust.Shared.Timing;
 using System.Runtime.CompilerServices;
 using DependencyAttribute = Robust.Shared.IoC.DependencyAttribute;
 using Content.Server.AlertLevel;
-using Linguini.Bundle.Errors;
 using Content.Shared.Power;
 
 namespace Content.Server.KS14.TeslaGate;
 
+// dont let ilya see this dogshit code
 public sealed class TeslaGateSystem : SharedTeslaGateSystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
@@ -113,7 +113,7 @@ public sealed class TeslaGateSystem : SharedTeslaGateSystem
         teslaGateComponent.CurrentlyShocking = false;
         teslaGateComponent.ThingsBeingShocked.Clear();
 
-        UpdateAppearance(teslaGate, false, TeslaGateVisualState.Inactive);
+        UpdateAppearance(teslaGate, false, teslaGateComponent.Enabled ? TeslaGateVisualState.Ready : TeslaGateVisualState.Inactive);
         Dirty(teslaGate);
 
         _audioSystem.PlayPvs(teslaGateComponent.StartingSound, uid);
@@ -131,33 +131,37 @@ public sealed class TeslaGateSystem : SharedTeslaGateSystem
         _damageableSystem.TryChangeDamage(uid, damage, ignoreResistances: true);
     }
 
-    public void Enable(Entity<TeslaGateComponent> teslaGate)
+    /// <inheritdoc/>
+    public override void Enable(Entity<TeslaGateComponent> teslaGate)
     {
         var (uid, teslaGateComponent) = teslaGate;
 
-        if (CanStartWork(uid, teslaGateComponent))
-            _audioSystem.PlayPvs(teslaGateComponent.StartingSound, uid);
-
         ResetAccumulator(teslaGateComponent);
         teslaGateComponent.Enabled = true;
+
+        if (CanStartWork(uid, teslaGateComponent))
+        {
+            _audioSystem.PlayPvs(teslaGateComponent.StartingSound, uid);
+
+            UpdateAppearance(teslaGate, false, TeslaGateVisualState.Ready);
+            Dirty(teslaGate);
+        }
     }
 
-    public void Disable(Entity<TeslaGateComponent> teslaGate)
+    /// <inheritdoc/>
+    public override void Disable(Entity<TeslaGateComponent> teslaGate)
     {
         var (uid, teslaGateComponent) = teslaGate;
 
         teslaGateComponent.Enabled = false;
         ResetAccumulator(teslaGateComponent);
+
+        UpdateAppearance(teslaGate, false, TeslaGateVisualState.Inactive);
+        Dirty(teslaGate);
     }
 
-    public override void OnPowerChange(Entity<TeslaGateComponent> teslaGate, ref PowerChangedEvent args)
-    {
-        // dont care if its already enabled
-        if (args.Powered)
-            Enable(teslaGate);
-        else
-            Disable(teslaGate);
-    }
+    // idgaf actually
+    public override void OnPowerChange(Entity<TeslaGateComponent> teslaGate, ref PowerChangedEvent args) { }
 
     private void CollideAct(TeslaGateComponent teslaGateComponent, EntityUid otherEntity)
     {

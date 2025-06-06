@@ -17,6 +17,9 @@
             "name": "none"
         },
         {
+            "name": "coils_ready"
+        },
+        {
             "name": "elec_anim",
             "delays": [
                 [
@@ -28,7 +31,15 @@
             ]
         },
         {
-            "name": "coils_ready"
+            "name": "coil_anim",
+            "delays": [
+                [
+                    0.25,
+                    0.25,
+                    0.25,
+                    0.25
+                ]
+            ]
         }
     ]
 }
