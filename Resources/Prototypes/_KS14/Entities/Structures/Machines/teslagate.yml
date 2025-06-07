@@ -111,7 +111,7 @@
   parent: BaseMachineCircuitboard
   id: TeslaGateCircuitboard
   name: tesla gate machine board
-  description: An electronics board used in contraband detector.
+  description: An electronics board used in a tesla gate.
   components:
   - type: Sprite
     state: security
