@@ -217,10 +217,10 @@
         blacklist:  # Goobstation
           tags:
           - WizardWand
+          - NoRecharge  # Assmos - Crystallizer
           components:
           - MaterialEnergy
-          tags:
-          - NoRecharge  # Assmos - Crystallizer
+
 
 - type: entity
   parent: BaseItemRecharger

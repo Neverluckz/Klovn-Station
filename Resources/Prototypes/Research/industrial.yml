@@ -331,41 +331,6 @@
 
 # Tier 3
 
-- type: technology
-  id: BluespaceStorage
-  name: research-technology-bluespace-storage
-  icon:
-    sprite: Clothing/Back/Backpacks/holding.rsi
-    state: holding
-  discipline: Industrial
-  tier: 3
-  cost: 20000 # Goobstation 15000 -> 20000
-  recipeUnlocks:
-  - ClothingBackpackHolding
-  - ClothingBackpackSatchelHolding
-  - ClothingBackpackDuffelHolding
-  - ClothingBackpackMessengerHolding # Frontier
-  # Goobstation R&D Console rework start
-  position: 2,-7
-  technologyPrerequisites:
-   - PortableFission
-  # Goobstation R&D Console rework end
-
-- type: technology
-  id: PortableFission
-  name: research-technology-portable-fission
-  icon:
-    sprite: Objects/Power/power_cells.rsi
-    state: microreactor
-  discipline: Industrial
-  tier: 3
-  cost: 15000 # Goobstation 10000 -> 15000
-  recipeUnlocks:
-  - PowerCellMicroreactor
-  position: 2,-6
-  technologyPrerequisites:
-  - AdvancedToolsTechnology  # Goobstation R&D Console rework
-  - AdvancedPowercells  # Goobstation R&D Console rework
 
 # Assmos
 - type: technology
@@ -381,5 +346,43 @@
   - HellfireFreezerMachineCircuitBoard
   - HellfireHeaterMachineCircuitBoard
   #- BluespaceGasSenderMachineBoard
+  position: 2,-5
   technologyPrerequisites:
   - AdvancedAtmospherics
+# Assmos end
+
+- type: technology
+  id: BluespaceStorage
+  name: research-technology-bluespace-storage
+  icon:
+    sprite: Clothing/Back/Backpacks/holding.rsi
+    state: holding
+  discipline: Industrial
+  tier: 3
+  cost: 20000 # Goobstation 15000 -> 20000
+  recipeUnlocks:
+  - ClothingBackpackHolding
+  - ClothingBackpackSatchelHolding
+  - ClothingBackpackDuffelHolding
+  - ClothingBackpackMessengerHolding # Frontier
+  # Goobstation R&D Console rework start
+  position: 2,-8 # Assmos -- for atmos exotech, move this by +1 Y
+  technologyPrerequisites:
+   - PortableFission
+  # Goobstation R&D Console rework end
+
+- type: technology
+  id: PortableFission
+  name: research-technology-portable-fission
+  icon:
+    sprite: Objects/Power/power_cells.rsi
+    state: microreactor
+  discipline: Industrial
+  tier: 3
+  cost: 15000 # Goobstation 10000 -> 15000
+  recipeUnlocks:
+  - PowerCellMicroreactor
+  position: 2,-7 # Assmos -- for atmos exotech, move this by +1 Y
+  technologyPrerequisites:
+  - AdvancedToolsTechnology  # Goobstation R&D Console rework
+  - AdvancedPowercells  # Goobstation R&D Console rework
