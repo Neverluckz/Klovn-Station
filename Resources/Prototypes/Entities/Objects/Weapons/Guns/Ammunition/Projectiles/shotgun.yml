@@ -233,7 +233,7 @@
   - type: ProjectileSpread
     proto: PelletShotgunImprovised
     count: 15
-    spread: 35
+    spread: 20
 
 - type: entity
   id: PelletShotgunTranquilizer

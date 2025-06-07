@@ -149,6 +149,8 @@ public partial class TraumaSystem
 
     public bool ApplyDamageToBone(EntityUid bone, FixedPoint2 severity, BoneComponent? boneComp = null)
     {
+        severity = FixedPoint2.Clamp(severity-0.05f, 0, 10); //KS14 - bone damage forgiveness - max is arbitrary
+
         if (severity == 0
             || !Resolve(bone, ref boneComp))
             return false;
