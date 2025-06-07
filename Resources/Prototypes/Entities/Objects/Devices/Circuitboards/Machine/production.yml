@@ -1487,7 +1487,7 @@
         Manipulator: 2
 # Shitmed Change End
 
-# Assmos - /tg/ gases
+# Assmos - /tg/ gases, etc.
 - type: entity
   id: ElectrolyzerMachineCircuitboard
   parent: BaseMachineCircuitboard

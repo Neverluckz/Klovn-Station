@@ -227,20 +227,22 @@
 
 - type: latheRecipe
   parent: BaseSilverCircuitboardRecipe
-  icon: { sprite: Structures/Piping/Atmospherics/hellfirethermomachine.rsi, state: freezerOff } # Goobstation
   id: HellfireFreezerMachineCircuitBoard
+  icon: { sprite: Structures/Piping/Atmospherics/hellfirethermomachine.rsi, state: freezerOff } # Goobstation
   result: HellfireFreezerMachineCircuitBoard
 
 # Assmos
 - type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
   id: ThermomachineUpgradedFreezerMachineCircuitBoard
+  icon: { sprite: _Funkystation/Structures/Piping/Atmospherics/upgradedthermomachine.rsi, state: off } # Goobstation
   result: ThermomachineUpgradedFreezerMachineCircuitBoard
 
 # Assmos
 - type: latheRecipe
   parent: BaseSilverCircuitboardRecipe
   id: ThermomachineAdvancedFreezerMachineCircuitBoard
+  icon: { sprite: _Funkystation/Structures/Piping/Atmospherics/advancedthermomachine.rsi, state: off } # Goobstation
   result: ThermomachineAdvancedFreezerMachineCircuitBoard
 
 - type: latheRecipe
