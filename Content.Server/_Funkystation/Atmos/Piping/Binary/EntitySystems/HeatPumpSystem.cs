@@ -53,7 +53,7 @@ namespace Content.Server.Atmos.Piping.Binary.EntitySystems
             if (!Comp<TransformComponent>(ent).Anchored || !args.IsInDetailsRange) // Not anchored? Out of range? No status.
                 return;
 
-            if (Loc.TryGetString("gas-valve-system-examined", out var str,
+            if (Loc.TryGetString("heat-pump-examined", out var str,
                     ("statusColor", pump.Active ? "green" : "orange"),
                     ("on", pump.Active)))
             {
