@@ -5,32 +5,8 @@ using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.KS14.SpecZones.Systems;
+namespace Content.Server.KS14.SpecZones;
 
-/// <summary>
-/// Component for a signal thingy
-/// </summary>
-[RegisterComponent, Serializable]
-public sealed partial class SignalPropagatorComponent : Component
-{
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public bool Status = true;
-
-    [DataField]
-    public ProtoId<SinkPortPrototype> EnablePort = "On";
-
-    [DataField]
-    public ProtoId<SinkPortPrototype> DisablePort = "Off";
-
-    [DataField]
-    public ProtoId<SinkPortPrototype> TogglePort = "Toggle";
-
-    [DataField]
-    public List<ProtoId<SourcePortPrototype>> HighSourcePorts = new() { "On" };
-
-    [DataField]
-    public List<ProtoId<SourcePortPrototype>> LowSourcePorts = new() { "Off" };
-}
 
 /// <summary>
 /// Handles the control of output based on the input and enable ports.
@@ -38,52 +14,80 @@ public sealed partial class SignalPropagatorComponent : Component
 public sealed class SignalPropagatorSystem : EntitySystem
 {
     [Dependency] private readonly DeviceLinkSystem _deviceSignalSystem = default!;
-    private float _updateAccumulator = 0;
+    [Dependency] private readonly AutoLinkSystem _autoLinkSystem = default!;
+
+    // This is a bit stupid.
+    private int _unaccumulatedPropagators = 0;
+
+    // How many seconds from compinit does this
+    private const float PropagatorUpdateTimer = 15f;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SignalPropagatorComponent, ComponentInit>(CompInit);
+        SubscribeLocalEvent<SignalPropagatorComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SignalPropagatorComponent, SignalReceivedEvent>(OnSignalReceived);
+
+        SubscribeLocalEvent<SignalPropagatorComponent, EntityUnpausedEvent>(OnPropagatorUnpaused);
     }
 
-    /*
-    public override void Update(float dt)
+    public override void Update(float frameTime)
     {
-        base.Update(dt);
-        _updateAccumulator += dt;
+        base.Update(frameTime);
 
-        if (_updateAccumulator < 15)
+        if (_unaccumulatedPropagators <= 0)
             return;
 
-        _updateAccumulator = 0;
+        var signalPropagatorQuery = EntityQueryEnumerator<SignalPropagatorComponent>();
+        while (signalPropagatorQuery.MoveNext(out var uid, out var propagatorComponent))
+        {
+            propagatorComponent.UpdateAccumulator += frameTime;
 
-        var propagatorQuery = EntityQueryEnumerator<SignalPropagatorComponent>();
-        while (propagatorQuery.MoveNext(out var uid, out var propagatorComp))
-            UpdateOutput(new Entity<SignalPropagatorComponent>(uid, propagatorComp));
+            if (propagatorComponent.FullyUpdated == true)
+                continue;
+
+            if (propagatorComponent.UpdateAccumulator < PropagatorUpdateTimer)
+                continue;
+
+            var propagator = (uid, propagatorComponent);
+            EnsurePropagatorLinked(propagator);
+            UpdateOutput(propagator);
+
+            _unaccumulatedPropagators--;
+            propagatorComponent.FullyUpdated = true;
+        }
     }
-    */
+
+    private void OnPropagatorUnpaused(Entity<SignalPropagatorComponent> ent, ref EntityUnpausedEvent args)
+    {
+        EnsurePropagatorLinked(ent);
+    }
+
+    private void EnsurePropagatorLinked(Entity<SignalPropagatorComponent> ent)
+    {
+        var (entUid, propagatorComponent) = ent;
+
+        _deviceSignalSystem.EnsureSourcePorts(entUid, propagatorComponent.HighSourcePorts.ToArray());
+        _deviceSignalSystem.EnsureSourcePorts(entUid, propagatorComponent.LowSourcePorts.ToArray());
+
+        _deviceSignalSystem.EnsureSinkPorts(entUid, propagatorComponent.EnablePort, propagatorComponent.DisablePort, propagatorComponent.TogglePort);
+
+        _autoLinkSystem.AutoLink((entUid, null));
+    }
 
     private void SignalPortList(Entity<SignalPropagatorComponent, DeviceLinkSourceComponent?> ent, List<ProtoId<SourcePortPrototype>> portList, bool signal)
     {
-        var (entUid, propagatorComp, linkSourceComp) = ent;
+        var (entUid, propagatorComponent, linkSourceComp) = ent;
         portList.ForEach(port => _deviceSignalSystem.SendSignal(ent, port, signal, linkSourceComp));
     }
 
-    private void CompInit(Entity<SignalPropagatorComponent> ent, ref ComponentInit args)
+    private void OnMapInit(Entity<SignalPropagatorComponent> ent, ref MapInitEvent args)
     {
-        var (entUid, propagatorComp) = ent;
-
-        //var sourcePorts = propagatorComp.HighSourcePorts;
-        //sourcePorts.AddRange(propagatorComp.LowSourcePorts);
-
-        _deviceSignalSystem.EnsureSourcePorts(entUid, propagatorComp.HighSourcePorts.ToArray());
-        _deviceSignalSystem.EnsureSourcePorts(entUid, propagatorComp.LowSourcePorts.ToArray());
-
-        _deviceSignalSystem.EnsureSinkPorts(entUid, propagatorComp.EnablePort, propagatorComp.DisablePort, propagatorComp.TogglePort);
-
+        EnsurePropagatorLinked(ent);
         UpdateOutput(ent);
+
+        _unaccumulatedPropagators++;
     }
 
     private void OnSignalReceived(Entity<SignalPropagatorComponent> ent, ref SignalReceivedEvent args)

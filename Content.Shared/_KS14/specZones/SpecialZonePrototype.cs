@@ -3,13 +3,13 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Utility;
 
-namespace Content.Shared.KS14.SpecZones.Systems;
+namespace Content.Shared.KS14.SpecZones.Types;
 
 /// <summary>
 /// Prototype for a special zone.
 /// </summary>
 [Prototype("specialZone")]
-public sealed partial class SpecialZone : IPrototype
+public sealed partial class SpecialZonePrototype : IPrototype
 {
     [IdDataField]
     public string ID { get; private set; } = default!;

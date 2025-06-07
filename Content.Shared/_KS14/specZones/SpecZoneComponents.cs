@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.KS14.SpecZones.Systems;
 
@@ -25,8 +26,20 @@ public sealed partial class SpecialZoneMapComponent : Component
     /// <summary>
     /// ID of the zone.
     /// </summary>
-    [DataField]
+    [IdDataField]
     public string ZoneId;
+
+    /// <summary>
+    /// Was this zone unpaused?
+    /// </summary>
+    public bool Awake = false;
+
+    /*
+    /// <summary>
+    /// How many active players are (supposed to be) in this zone?
+    /// </summary>
+    public int MindCount;
+    */
 }
 
 /// <summary>

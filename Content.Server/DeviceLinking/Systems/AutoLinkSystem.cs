@@ -46,4 +46,29 @@ public sealed class AutoLinkSystem : EntitySystem
             _deviceLinkSystem.LinkDefaults(null, uid, receiverUid);
         }
     }
+
+    // KS14 Edit: add public method for dis
+    public void AutoLink(Entity<AutoLinkTransmitterComponent?> transmitter)
+    {
+        var uid = transmitter.Owner;
+        if (!Resolve(transmitter, ref transmitter.Comp))
+            return;
+
+        var component = transmitter.Comp;
+        var xform = Transform(uid);
+
+        var query = EntityQueryEnumerator<AutoLinkReceiverComponent>();
+        while (query.MoveNext(out var receiverUid, out var receiver))
+        {
+            if (receiver.AutoLinkChannel != component.AutoLinkChannel)
+                continue; // Not ours.
+
+            var rxXform = Transform(receiverUid);
+
+            if (rxXform.GridUid != xform.GridUid)
+                continue;
+
+            _deviceLinkSystem.LinkDefaults(null, uid, receiverUid);
+        }
+    }
 }
