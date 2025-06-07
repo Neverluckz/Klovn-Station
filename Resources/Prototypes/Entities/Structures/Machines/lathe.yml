@@ -559,7 +559,6 @@
     - MedicalBoardsStaticGoob
     - SecurityBoardsStaticGoob
     - ThermomachineFreezerMachineCircuitBoard # Assmos - Moved to staticRecipes from dynamicRecipes
-    - ThermomachineHeaterMachineCircuitBoard # Assmos - Moved to staticRecipes from dynamicRecipes
     dynamicPacks:
     - EngineeringBoards
     - CargoBoards
