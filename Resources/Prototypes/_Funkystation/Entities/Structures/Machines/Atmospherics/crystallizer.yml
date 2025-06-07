@@ -13,10 +13,10 @@
     offset: 0, 0.5
     layers:
       - sprite: Structures/Piping/Atmospherics/pipe.rsi
-        state: pipeTJunction
+        state: pipeStraight #this is so cooked visually but eh
         offset: 0, -0.5
         map: [ "enum.PipeVisualLayers.Pipe" ]
-        renderingStrategy: Default
+        rotation: 90
       - state: off
         map: [ "enum.PowerDeviceVisualLayers.Powered" ]
       - state: panel
@@ -70,11 +70,11 @@
       regulator:
         !type:PipeNode
         nodeGroupID: Pipe
-        pipeDirection: North
+        pipeDirection: West
       inlet:
         !type:PipeNode
         nodeGroupID: Pipe
-        pipeDirection: South
+        pipeDirection: East
   - type: AtmosMonitoringConsoleDevice
     navMapBlip: Thermoregulator
   - type: UserInterface
