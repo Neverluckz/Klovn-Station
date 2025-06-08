@@ -29,12 +29,12 @@
   - type: CanMoveInAir
   - type: ChasingWalk
     minSpeed: 1
-    maxSpeed: 3
+    maxSpeed: 2
     chasingComponent:
     - type: LightningTarget
   - type: AmbientSound
-    volume: 3
-    range: 15
+    volume: 4
+    range: 20 #haha look funny 420 haha haha
     sound:
       path: /Audio/Effects/tesla.ogg
   - type: PointLight
@@ -47,8 +47,8 @@
     arcDepth: 2
     maxLightningArc: 1
     shootMinInterval: 4
-    shootMaxInterval: 10
-    shootRange: 3
+    shootMaxInterval: 7.5
+    shootRange: 4
     lightningPrototype: Lightning
   # Goobstation
   - type: ContainmentFieldIgnore # to replace the cursed mass threshold system
@@ -82,7 +82,7 @@
         layer:
         - GlassLayer
   - type: PointLight
-    radius: 10
+    radius: 15
     energy: 16
   - type: EventHorizon
     radius: 0.5
@@ -105,9 +105,9 @@
   - type: LightningArcShooter
     arcDepth: 3
     maxLightningArc: 4
-    shootMinInterval: 3
-    shootMaxInterval: 5
-    shootRange: 7
+    shootMinInterval: 4
+    shootMaxInterval: 6
+    shootRange: 3
     lightningPrototype: Lightning #To do: change to HyperchargedLightning, after fix beam system
   - type: ChasingWalk
     minSpeed: 1
