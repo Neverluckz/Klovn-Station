@@ -70,7 +70,7 @@
     heavyStaminaCost: 10 # goob edit
     damage:
       types:
-        Blunt: 14
+        Blunt: 15 #NT put more metal into the toolboxes, so they hit harder now.
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
   - type: Tag
@@ -86,7 +86,7 @@
   - type: Appearance
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 125
+      Steel: 130
 
 - type: entity
   name: emergency toolbox
