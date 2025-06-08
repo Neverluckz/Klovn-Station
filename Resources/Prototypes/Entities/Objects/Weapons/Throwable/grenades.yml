@@ -283,7 +283,7 @@
     maxIntensity: 300
     canCreateVacuum: true
   - type: OnUseTimerTrigger
-    delay: 5
+    delay: 4.5
     beepSound:
       path: /Audio/Effects/Grenades/SelfDestruct/SDS_Charge2.ogg
       params:
