@@ -65,7 +65,7 @@
     heldPrefix: unlit
     size: Tiny
   - type: Matchstick
-    duration: 10
+    duration: 15
     igniteSound:
       path: /Audio/Items/match_strike.ogg
   - type: PointLight

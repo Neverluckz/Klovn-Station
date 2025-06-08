@@ -36,12 +36,12 @@
     autoAttack: true
     angle: 0
     wideAnimationRotation: -135
-    attackRate: 4
+    attackRate: 3
     damage:
       types:
-        Slash: 2
-        Blunt: 2
-        Structural: 4
+        Slash: 4
+        Blunt: 4
+        Structural: 6
     soundHit:
       path: /Audio/Weapons/chainsaw.ogg
       params:

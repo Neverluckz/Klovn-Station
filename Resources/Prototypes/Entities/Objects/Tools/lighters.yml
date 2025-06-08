@@ -94,7 +94,7 @@
   - type: ItemToggleMeleeWeapon
     activatedDamage:
         types:
-            Heat: 1
+            Heat: 4
   - type: ItemToggleSize
     activatedSize: Small
   - type: ItemToggleHot
