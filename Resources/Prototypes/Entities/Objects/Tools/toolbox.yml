@@ -86,7 +86,7 @@
   - type: Appearance
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 130
+      Steel: 130 #KS change
 
 - type: entity
   name: emergency toolbox
