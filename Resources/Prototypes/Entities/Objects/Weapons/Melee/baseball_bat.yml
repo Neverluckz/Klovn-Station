@@ -65,11 +65,11 @@
     soundHit:
       collection: MetalThud
   - type: Wieldable
-  - type: IncreaseDamageOnWield
+  - type: IncreaseDamageOnWield #melee needs a buff icl
     damage:
       types:
-        Blunt: 5
-        Structural: 10
+        Blunt: 8
+        Structural: 15
   - type: StaminaDamageOnHit # goob - bat makes you hurt and tired (but not as much as the real stun stick)
     damage: 12 # goob - 8 hits to stamcrit someone with armor vest + helmet
   - type: Item
@@ -78,7 +78,7 @@
   - type: Tool
     qualities:
     - Rolling
-    speedModifier: 0.75 # a bit unwieldly but does the job
+    speedModifier: 0.8 # a bit unwieldly but does the job
   - type: Clothing
     quickEquip: false
     slots:
@@ -126,4 +126,4 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 1
+        Blunt: 0.1

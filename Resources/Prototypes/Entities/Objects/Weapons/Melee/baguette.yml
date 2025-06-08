@@ -13,11 +13,11 @@
   suffix: Weapon
   components:
   - type: MeleeWeapon
-    attackRate: 1.4
+    attackRate: 1.5
     wideAnimationRotation: -120
     damage:
       types:
-        Slash: 16
+        Slash: 18
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Reflect

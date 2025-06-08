@@ -186,8 +186,8 @@
         variation: 0.125
     activatedDamage:
       types:
-        Slash: 18.5
-        Heat: 18.5
+        Slash: 20
+        Heat: 20
         Structural: 25
   - type: MeleeWeapon
     animationRotation: -45 # WWDP
