@@ -70,7 +70,7 @@
     heavyStaminaCost: 10 # goob edit
     damage:
       types:
-        Blunt: 15 #NT put more metal into the toolboxes, so they hit harder now.
+        Blunt: 15 #KS
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
   - type: Tag
