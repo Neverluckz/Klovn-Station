@@ -65,9 +65,11 @@
     CartridgeDermaline: 4 # Goobstation - end
     ClothingOuterArmorRiot: 3 #KS
     ClothingHeadHelmetRiot: 3
+    Chainsaw: 1 #KS
   # security officers need to follow a diet regimen!
   contrabandInventory:
     WeaponMeleeNeedle: 2
     FoodDonutHomer: 12
     FoodBoxDonut: 2
-    #box evidence
+    #its funny though
+    ExGrenade: 1 #KS

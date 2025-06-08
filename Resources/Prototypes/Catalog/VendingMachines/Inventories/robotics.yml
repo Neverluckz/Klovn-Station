@@ -31,13 +31,13 @@
 - type: vendingMachineInventory
   id: RoboticsInventory
   startingInventory:
-    CableApcStack: 4
-    SciFlash: 4
-    ProximitySensor: 3
-    ClothingEyesHudDiagnostic: 2
-    ClothingEyesEyepatchHudDiag: 2
-    RemoteSignaller: 3
-    Igniter: 3 # its more ordnance but yeah
+    CableApcStack: 4 #All of these were buffed by KS cuz robots arent used as much
+    SciFlash: 5
+    ProximitySensor: 4
+    ClothingEyesHudDiagnostic: 3
+    ClothingEyesEyepatchHudDiag: 3
+    RemoteSignaller: 4
+    Igniter: 4 # its more ordnance but yeah
     HandheldHealthAnalyzer: 3
     Scalpel: 2
     SawElectric: 2
@@ -45,9 +45,12 @@
     MedicalStitches: 2
     NitrousOxideTankFilled: 2
     ClothingMaskBreathMedical: 5
-    ClothingHeadHatWeldingMaskFlame: 1
-    Welder: 1
+    ClothingHeadHatWeldingMaskFlame: 2
+    Welder: 2
     Screwdriver: 2
     Crowbar: 2
   contrabandInventory:
-    FoodBurgerRobot: 1  
+    FoodBurgerRobot: 1
+    SecurityCyberneticEyes: 1 #KS
+  emaggedInventory:
+    BorgModuleMartyr: 1 #KS
