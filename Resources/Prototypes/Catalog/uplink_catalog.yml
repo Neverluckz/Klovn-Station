@@ -233,8 +233,8 @@
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_sword.rsi, state: icon }
   productEntity: EnergySword
   cost:
-    Telecrystal: 37 # goob - desword is 74
-  saleLimit: 2 # Goob - 2 eswords = desword
+    Telecrystal: 50 #KS, desword is 100TC
+    #removed sale limit because thats fucking lame.
   categories:
   - UplinkWeaponry
 
@@ -333,7 +333,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
   productEntity: WeaponShotgunBulldog
   cost:
-    Telecrystal: 60 # goob
+    Telecrystal: 50 #KS, Bulldog is not used as much as it should, making it half the total agents budget might be better.
   categories:
   - UplinkWeaponry
 
@@ -357,7 +357,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
   productEntity: WeaponLightMachineGunL6
   cost:
-    Telecrystal: 100 # goob
+    Telecrystal: 99 #KS, leave 1tc for funny
   categories:
   - UplinkWeaponry
 
@@ -553,7 +553,7 @@
   description: uplink-exploding-syndicate-bomb-desc
   productEntity: SyndicateBomb
   cost:
-    Telecrystal: 52 # goob
+    Telecrystal: 46 #KS, making it cheaper for syndicate agents, more expensive for nukeops.
   categories:
     - UplinkExplosives
   restockTime: 1800
@@ -569,7 +569,7 @@
   description: uplink-exploding-syndicate-bomb-desc
   productEntity: SyndicateBomb
   cost:
-    Telecrystal: 26 # goob - cheap explosive for nukies
+    Telecrystal: 58 #KS, goob is schizo by making a syndicate bomb 26TC for nukies
   categories:
     - UplinkExplosives
   conditions:
