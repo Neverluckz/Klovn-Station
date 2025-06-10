@@ -233,7 +233,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_sword.rsi, state: icon }
   productEntity: EnergySword
   cost:
-    Telecrystal: 50 #KS, desword is 100TC
+    Telecrystal: 38 #KS, desword is 76TC
     #removed sale limit because thats fucking lame.
   categories:
   - UplinkWeaponry
@@ -333,7 +333,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
   productEntity: WeaponShotgunBulldog
   cost:
-    Telecrystal: 50 #KS, Bulldog is not used as much as it should, making it half the total agents budget might be better.
+    Telecrystal: 55 #KS, Bulldog is not used as much as it should.
   categories:
   - UplinkWeaponry
 
