@@ -254,12 +254,12 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: OnUseTimerTrigger
-    delay: 5
+    delay: 4.5
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Minibomb
     totalIntensity: 400
-    intensitySlope: 60 #Will destroy the tile under it reliably, space 1-2 more to rods. Only does any significant damage in a 5-tile cross.
+    intensitySlope: 60 #It'll fuck up the general area, minibombs are something to be scared of.
     maxIntensity: 90
   - type: Appearance
   - type: TimerTriggerVisuals
@@ -283,13 +283,13 @@
     maxIntensity: 300
     canCreateVacuum: true
   - type: OnUseTimerTrigger
-    delay: 6.5
+    delay: 4.5
     beepSound:
       path: /Audio/Effects/Grenades/SelfDestruct/SDS_Charge2.ogg
       params:
         volume: 30
     initialBeepDelay: 0
-    beepInterval: 1
+    beepInterval: 16
 
 
 - type: entity
