@@ -305,6 +305,21 @@
       - id: TubaInstrument
 
 - type: entity
+  id: CrateFunCowboySet
+  parent: CrateGenericSteel
+  name: cowboy set crate
+  description: This station needs a new sheriff in town... luckily that role can be filled by you!
+  components:
+  - type: StorageFill
+    contents:
+      - id: RevolverCapGun
+        amount: 2
+      - id: ClothingHeadHatCowboyBlack
+      - id: ClothingBeltBlackSuspenders
+      - id: ClothingShoesBootsCowboyBlack
+      - id: Cigar
+
+- type: entity
   id: CrateFunInstrumentsString
   parent: CrateGenericSteel
   name: string instrument ensemble crate

@@ -54,6 +54,16 @@
   group: market
 
 - type: cargoProduct
+  id: FunCowboySet
+  icon:
+    sprite: Clothing/Head/Hats/cowboyhatblack.rsi
+    state: icon
+  product: CrateFunCowboySet
+  cost: 1500
+  category: cargoproduct-category-name-fun
+  group: market
+
+- type: cargoProduct
   id: FunInstrumentsBrass
   icon:
     sprite: Objects/Fun/Instruments/structureinstruments.rsi
