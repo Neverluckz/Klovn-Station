@@ -315,7 +315,7 @@
       - id: RevolverCapGun
         amount: 2
       - id: ClothingHeadHatCowboyBlack
-      - id: ClothingBeltBlackSuspenders
+      - id: ClothingBeltHolster
       - id: ClothingShoesBootsCowboyBlack
       - id: Cigar
 
