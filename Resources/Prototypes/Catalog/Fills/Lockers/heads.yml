@@ -285,6 +285,7 @@
     - id: WeaponDisabler
     - id: ClothingEyesHudCommand
     - id: ServiceTechFabCircuitboard # Goobstation - Service Techfab
+    - id: SyringePoisonFent #KS - the HOP can have fent
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
