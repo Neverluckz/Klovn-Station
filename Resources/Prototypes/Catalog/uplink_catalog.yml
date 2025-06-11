@@ -233,7 +233,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_sword.rsi, state: icon }
   productEntity: EnergySword
   cost:
-    Telecrystal: 50 #KS, desword is 100TC
+    Telecrystal: 37 #KS - Reversion of E-sword buff
     #removed sale limit because thats fucking lame.
   categories:
   - UplinkWeaponry
