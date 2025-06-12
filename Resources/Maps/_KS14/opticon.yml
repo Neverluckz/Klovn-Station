@@ -49237,13 +49237,6 @@ entities:
     - type: Transform
       pos: 27.529829,-19.927546
       parent: 2
-- proto: PlushieByrrneGibbed
-  entities:
-  - uid: 7343
-    components:
-    - type: Transform
-      pos: 55.312054,-18.816992
-      parent: 2
 - proto: PlushieNuke
   entities:
   - uid: 7344
