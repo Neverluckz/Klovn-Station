@@ -140,9 +140,9 @@
   weight: 10
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
-  supervisors: job-supervisors-captain
-  canBeAntag: false
-  goobcoins: 40 #Goob content
+  supervisors: job-supervisors-hop
+  canBeAntag: true
+  goobcoins: 90 #Goob content
   access:
   - Cargo
   - Salvage
@@ -154,8 +154,6 @@
   - Cryogenics
   - External # goobstation
   special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff

@@ -149,12 +149,12 @@
     - !type:DepartmentTimeRequirement
       department: Command
       time: 36000 # 10 hours
-  goobcoins: 40 #Goob content
+  goobcoins: 90 #Goob content
   weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
   supervisors: job-supervisors-captain
-  canBeAntag: false
+  canBeAntag: true
   access:
   - Command
   - HeadOfPersonnel
@@ -183,8 +183,6 @@
   - Atmospherics
   - Medical
   special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff

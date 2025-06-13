@@ -107,7 +107,7 @@
   icon: "JobIconSecurityCadet"
   supervisors: job-supervisors-security
   canBeAntag: false
-  goobcoins: 30 #Goob content
+  goobcoins: 130 #Goob content
   access:
   - Security
   - Brig

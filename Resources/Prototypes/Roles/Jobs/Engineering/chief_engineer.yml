@@ -146,8 +146,8 @@
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"
   supervisors: job-supervisors-captain
-  canBeAntag: false
-  goobcoins: 40 #Goob content
+  canBeAntag: true
+  goobcoins: 90 #Goob content
   access:
   - Maintenance
   - Engineering
@@ -158,8 +158,6 @@
   - Brig
   - Cryogenics
   special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
