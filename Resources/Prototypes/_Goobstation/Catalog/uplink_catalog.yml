@@ -1236,3 +1236,14 @@
     Telecrystal: 3
   categories:
   - UplinkPointless
+
+- type: listing
+  id: UplinkGlock17
+  name: uplink-glock17-name
+  description: uplink-glock17-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Pistols/glock17.rsi, state: icon }
+  productEntity: WeaponPistolGlock17
+  cost:
+    Telecrystal: 25
+  categories:
+  - UplinkWeaponry
