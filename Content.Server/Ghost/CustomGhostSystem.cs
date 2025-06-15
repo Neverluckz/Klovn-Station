@@ -7,6 +7,7 @@ using Robust.Shared.IoC;
 using Robust.Shared.Log;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Content.Shared.Movement.Events;
 
 namespace Content.Server.Ghost;
 
