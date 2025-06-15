@@ -257,6 +257,9 @@ namespace Content.Server.Entry
                 _currencyManager.Initialize(); // Goobstation
                 _lastAntagManager = IoCManager.Resolve<LastRolledAntagManager>(); // Goobstation
                 _lastAntagManager.Initialize(); // Goobstation
+
+                // Регистрируем систему кастомных призраков
+                _sysMan.AddSystem<CustomGhostSystem>();
             }
         }
 
