@@ -40,6 +40,7 @@
       - id: BookSecurity
       - id: BookSpaceEncyclopedia
       - id: BookTheBookOfControl
+      - id: RevolutionaryManifesto
     # Handwritten books
     - !type:GroupSelector
       rolls: !type:RangeNumberSelector

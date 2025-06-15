@@ -69,12 +69,10 @@ gs-balanceui-shop-buy-token-antag = Buy an Antag Token - {$price} Kloins
 gs-balanceui-shop-buy-token-admin-abuse = Buy an Admin Abuse Token - {$price} Kloins
 gs-balanceui-shop-buy-token-hat = Buy a Hat Token - {$price} Kloins
 
-gs-balanceui-shop-token-admin = Trial Admin
 gs-balanceui-shop-token-antag = High Tier Antag Token
 gs-balanceui-shop-token-admin-abuse = Admin Abuse Token
 gs-balanceui-shop-token-hat = Hat Token
 
-gs-balanceui-shop-buy-token-admin-desc = Become a trial admin on the server.
 gs-balanceui-shop-buy-token-antag-desc = Allows you become any antag. (Excluding Wizards)
 gs-balanceui-shop-buy-token-admin-abuse-desc = Allows you to request an admin to abuse their powers against you. Admins are encouraged to go wild.
 gs-balanceui-shop-buy-token-hat-desc = An admin will give you a random hat.
@@ -83,7 +81,6 @@ gs-balanceui-admin-add-label = Add (or subtract) money:
 gs-balanceui-admin-add-player = Player name
 gs-balanceui-admin-add-value = Value
 
-gs-balanceui-remark-admin = Bought trial admin.
 gs-balanceui-remark-token-antag = Bought an antag token.
 gs-balanceui-remark-token-admin-abuse = Bought an admin abuse token.
 gs-balanceui-remark-token-hat = Bought a hat token.
