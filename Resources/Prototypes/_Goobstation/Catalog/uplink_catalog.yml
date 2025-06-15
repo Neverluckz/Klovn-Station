@@ -1244,6 +1244,6 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Pistols/glock17.rsi, state: icon }
   productEntity: WeaponPistolGlock17
   cost:
-    Telecrystal: 25
+    Telecrystal: 15
   categories:
   - UplinkWeaponry

@@ -130,7 +130,7 @@ uplink-gloves-north-star-name = Gloves of the North Star
 uplink-gloves-north-star-desc = A pair of gloves that reduce your punching cooldown drastically, allowing you to beat people to death in a flurry of punches.
 
 uplink-glock17-name = Glock 17
-uplink-glock17-desc = A reliable and widely used 9mm pistol. Known for its durability and simplicity. Uses standard pistol magazines (.35 auto).
+uplink-glock17-desc = A reliable and widely used pistol chambered in .35 caliber. Known for its durability and simplicity. Uses standard pistol magazines.
 
 # Explosives
 uplink-explosive-grenade-name = Explosive Grenade
