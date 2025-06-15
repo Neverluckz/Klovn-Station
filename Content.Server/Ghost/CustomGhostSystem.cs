@@ -1,13 +1,18 @@
 using Content.Server.Ghost.Components;
+using Content.Server.Ghost.Roles.Components;
+using Content.Server.Ghost.Roles;
+using Content.Server.Mind;
+using Content.Server.Mind.Components;
+using Content.Server.Players;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
+using Content.Shared.Movement.Events;
+using Content.Shared.Prototypes;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
-using Robust.Shared.GameObjects;
-using Robust.Shared.IoC;
-using Robust.Shared.Log;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 using System.Linq;
-using Content.Shared.Movement.Events;
 
 namespace Content.Server.Ghost;
 
@@ -15,38 +20,37 @@ public sealed class CustomGhostSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly MindSystem _mindSystem = default!;
+    [Dependency] private readonly GhostRoleSystem _ghostRoleSystem = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<PlayerAttachedEvent>(OnPlayerAttached);
+
+        SubscribeLocalEvent<GhostComponent, PlayerAttachedEvent>(OnPlayerAttached);
     }
 
-    private void OnPlayerAttached(PlayerAttachedEvent args)
+    private void OnPlayerAttached(EntityUid uid, GhostComponent component, PlayerAttachedEvent args)
     {
-        if (!args.Entity.HasComponent<GhostComponent>())
+        if (!TryComp<MindComponent>(uid, out var mindComp) || mindComp.Mind == null)
             return;
 
-        var player = args.Player;
-        var ckey = player.Session.Name;
-
-        // Ищем прототип кастомного призрака для этого игрока
-        var customGhostPrototype = _prototypeManager.EnumeratePrototypes<CustomGhostPrototype>()
-            .FirstOrDefault(p => p.Ckey == ckey);
-
-        if (customGhostPrototype == null)
+        var mind = mindComp.Mind;
+        var player = _playerManager.GetSessionById(mind.UserId!.Value);
+        if (player == null)
             return;
 
-        // Добавляем компонент кастомного призрака
-        var customGhost = EntityManager.AddComponent<CustomGhostComponent>(args.Entity);
-        customGhost.GhostName = customGhostPrototype.GhostName;
-        customGhost.GhostDescription = customGhostPrototype.GhostDescription;
-        customGhost.Alpha = customGhostPrototype.Alpha;
+        // Проверяем, есть ли у игрока кастомный призрак
+        var customGhost = _prototypeManager.EnumeratePrototypes<CustomGhostPrototype>()
+            .FirstOrDefault(p => p.PlayerId == player.UserId);
 
-        // Обновляем спрайт
-        if (EntityManager.TryGetComponent<SpriteComponent>(args.Entity, out var sprite))
-        {
-            sprite.LayerSetSprite(0, customGhostPrototype.Sprite);
-        }
+        if (customGhost == null)
+            return;
+
+        // Применяем кастомный призрак
+        var sprite = EnsureComp<SpriteComponent>(uid);
+        sprite.LayerSetSprite(0, customGhost.Sprite);
+        sprite.LayerSetColor(0, customGhost.Color);
     }
 }
