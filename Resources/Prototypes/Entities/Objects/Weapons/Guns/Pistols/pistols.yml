@@ -372,13 +372,13 @@
     spreadMultiplier: 30
 
 - type: entity
-  name: glock17
+  name: Glorp 17
   parent: BaseWeaponPistol
-  id: WeaponPistolGlock17
+  id: WeaponPistolGlorp17
   description: A reliable and widely used 9mm pistol. Known for its durability and simplicity.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Pistols/glock17.rsi
+    sprite: Objects/Weapons/Guns/Pistols/glorp17.rsi
   - type: ItemSlots
     slots:
       gun_magazine:
