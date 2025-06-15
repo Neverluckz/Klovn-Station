@@ -370,3 +370,66 @@
             - CartridgeMagnum
   - type: Multishot #Goob
     spreadMultiplier: 30
+
+- type: entity
+  name: glock17
+  parent: BaseWeaponPistol
+  id: WeaponPistolGlock17
+  description: A reliable and widely used 9mm pistol. Known for its durability and simplicity.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Pistols/glock17.rsi
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistol
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistol
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
+  - type: Gun
+    fireRate: 8
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+      - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/pistol.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/pistol_cock.ogg
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: AmmoCounter
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 600
+  - type: Multishot
+    spreadMultiplier: 1.5
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: MeleeWeapon
+    damage:
+      types:
+       Blunt: 8
+    angle: 0
+    wideAnimationRotation: 90
+    soundHit:
+      collection: MetalThud
