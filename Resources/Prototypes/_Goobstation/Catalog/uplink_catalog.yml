@@ -1236,3 +1236,14 @@
     Telecrystal: 3
   categories:
   - UplinkPointless
+
+- type: listing
+  id: UplinkGlorp17
+  name: uplink-glorp17-name
+  description: uplink-glorp17-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Pistols/glorp17.rsi, state: icon }
+  productEntity: WeaponPistolGlorp17
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkWeaponry
