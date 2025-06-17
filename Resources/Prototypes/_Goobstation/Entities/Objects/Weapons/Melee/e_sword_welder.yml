@@ -40,10 +40,11 @@
       path: /Audio/_Goobstation/Weapons/EswordWelder/swing.ogg
       params:
         variation: 0.125
-    activatedDamage:
+    activatedDamage: # ks edits
         types:
             Slash: 7
-            Heat: 15
+            Heat: 10
+            Structure: 10 
   - type: ItemToggle
     predictable: false
     soundActivate:
@@ -107,6 +108,25 @@
         - ReagentId: WeldingFuel
           Quantity: 250
         maxVol: 250
+    - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnHitNoDamage:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedSoundOnSwing:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/swing.ogg
+      params:
+        variation: 0.125
+    activatedDamage: # ks edits
+        types:
+            Slash: 8
+            Heat: 15
+            Structure: 10
   - type: Construction
     graph: WelderSwordIndustrial
     node: welderSwordIndustrial
@@ -136,6 +156,25 @@
         - ReagentId: WeldingFuel
           Quantity: 1000
         maxVol: 1000
+      - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnHitNoDamage:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedSoundOnSwing:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/swing.ogg
+      params:
+        variation: 0.125
+    activatedDamage: # ks edits
+        types:
+            Slash: 9
+            Heat: 16
+            Structure: 20
   - type: Construction
     graph: WelderSwordExperimental
     node: welderSwordExperimental
