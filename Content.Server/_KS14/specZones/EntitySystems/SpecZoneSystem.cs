@@ -33,6 +33,7 @@ using Content.Shared.Construction.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.GameTicking;
 using Robust.Shared.Configuration;
+using Robust.Server.Player;
 using Content.Shared.CCVar;
 using System.Runtime.CompilerServices;
 using DependencyAttribute = Robust.Shared.IoC.DependencyAttribute;
@@ -45,6 +46,7 @@ public sealed class SpecZoneSystem : SharedSpecZoneSystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IConfigurationManager _configManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly TurfSystem _turfSystem = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoaderSystem = default!;
     [Dependency] private readonly BiomeSystem _biomes = default!;
@@ -373,7 +375,7 @@ public sealed class SpecZoneSystem : SharedSpecZoneSystem
 
             EjectFromZone(humanUid.Value);
 
-            if (_mindSystem.TryGetSession(humanUid, out var mind))
+            if (_player.TryGetSessionByEntity(humanUid.Value, out var mind))
                 _audio.PlayGlobal(ZoneFinishSoundSpec, mind);
         });
 
@@ -456,7 +458,7 @@ public sealed class SpecZoneSystem : SharedSpecZoneSystem
         InsertIntoZone(user, zoneEntrancePosition.Value);
         EjectFromZone(key.Owner);
 
-        if (_mindSystem.TryGetMind(user, out var mindId, out var mindComponent) && _mindSystem.TryGetSession(mindId, out var mind))
+        if (_mindSystem.TryGetMind(user, out var mindId, out var mindComponent) && _player.TryGetSessionByEntity(mindId, out var mind))
             _audio.PlayGlobal(ZoneEnterSoundSpec, mind);
 
         if (useCoordinates != null)

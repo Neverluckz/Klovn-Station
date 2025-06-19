@@ -68,6 +68,8 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Random;
+using Robust.Shared.Audio;
 
 // Shitmed Change
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
@@ -349,7 +351,16 @@ public sealed class HealingSystem : EntitySystem
             if (healing.BloodlossModifier == 0 && woundableComp.Bleeds > 0) // If the healing item has no bleeding heals, and its bleeding, we raise the alert.
                 _popupSystem.PopupEntity(Loc.GetString("medical-item-cant-use-rebell", ("target", ent)), ent, args.User);
 
-            return;
+            if (damageChanged is not null)
+                healedTotal += -damageChanged.GetTotal();
+
+            if (healedTotal <= 0 && !healedBleed)
+            {
+                if (healing.BloodlossModifier == 0 && woundableComp.Bleeds > 0) // If the healing item has no bleeding heals, and its bleeding, we raise the alert.
+                    _popupSystem.PopupEntity(Loc.GetString("medical-item-cant-use-rebell", ("target", ent)), ent, args.User);
+
+                return;
+            }
         }
 
 

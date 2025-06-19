@@ -49,6 +49,7 @@
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -229,10 +230,7 @@ namespace Content.Server.EntityEffects.Effects
             var damageSpec = new DamageSpecifier(Damage);
 
             if (args is EntityEffectReagentArgs reagentArgs)
-            {
                 scale = ScaleByQuantity ? reagentArgs.Quantity * reagentArgs.Scale : reagentArgs.Scale;
-                scale = FixedPoint2.Min(scale, ScaleByQuantityCap);
-            }
 
             if (ScaleByTemperature.HasValue)
             {

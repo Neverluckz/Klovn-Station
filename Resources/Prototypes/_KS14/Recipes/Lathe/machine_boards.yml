@@ -1,0 +1,31 @@
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: ThermomachineUpgradedFreezerMachineCircuitBoard
+  icon: { sprite: _Funkystation/Structures/Piping/Atmospherics/upgradedthermomachine.rsi, state: freezerOff } # Goobstation
+  result: ThermomachineUpgradedFreezerMachineCircuitBoard
+
+- type: latheRecipe
+  parent: BaseSilverCircuitboardRecipe
+  id: ThermomachineAdvancedFreezerMachineCircuitBoard
+  icon: { sprite: _Funkystation/Structures/Piping/Atmospherics/advancedthermomachine.rsi, state: freezerOff } # Goobstation
+  result: ThermomachineAdvancedFreezerMachineCircuitBoard
+
+# Assmos - /tg/ gases
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  icon: { sprite: _Funkystation/Structures/Machines/electrolyzer.rsi, state: electrolyzerOff } # Goobstation
+  id: ElectrolyzerMachineCircuitboard
+  result: ElectrolyzerMachineCircuitboard
+
+# Assmos - Bluespace Gas ## TODO: Finish when we port bluespace gas sender
+#- type: latheRecipe
+#  parent: BaseCircuitboardRecipe
+#  id: BluespaceGasSenderMachineBoard
+#  result: BluespaceGasSenderMachineBoard
+
+# Assmos - Crystallizer
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  icon: { sprite: _Funkystation/Structures/Machines/crystallizer.rsi, state: off } # Goobstation
+  id: CrystallizerMachineCircuitboard
+  result: CrystallizerMachineCircuitboard

@@ -34,9 +34,11 @@
   - type: ChangelingRule
   - type: GameRule
     minPlayers: 15
-  - type: StationEvent
-    chaosScore: 600
-    eventType: Roundstart
+    chaosScore: 800
+  - type: AntagRandomObjectives
+    sets:
+    - groups: ChangelingObjectiveGroups
+    maxDifficulty: 5
   - type: AntagObjectives
     objectives:
     - ChangelingSurviveObjective
@@ -64,9 +66,7 @@
   components:
   - type: GameRule
     minPlayers: 30
-  - type: StationEvent
     chaosScore: 700
-    eventType: Roundstart
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     definitions:
@@ -90,9 +90,7 @@
   components:
   - type: GameRule
     minPlayers: 30
-  - type: StationEvent
     chaosScore: 450
-    eventType: Roundstart
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     agentName: changeling-roundend-name
@@ -113,9 +111,7 @@
   components:
   - type: GameRule
     minPlayers: 30
-  - type: StationEvent
     chaosScore: 1000
-    eventType: Roundstart
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml
   - type: AntagSelection
@@ -185,9 +181,7 @@
   components:
   - type: GameRule
     minPlayers: 30
-  - type: StationEvent
     chaosScore: 700
-    eventType: Roundstart
   - type: RevolutionaryRule
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
@@ -215,9 +209,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: BlobRule
-  - type: StationEvent
-    chaosScore: 900
-    eventType: Roundstart
+  - type: GameRule
+    chaosScore: 1000
 
 - type: entity
   id: BlobGameMode
@@ -227,9 +220,7 @@
   - type: BlobRule
   - type: GameRule
     minPlayers: 15
-  - type: StationEvent
-    chaosScore: 900
-    eventType: Roundstart
+    chaosScore: 1000
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     definitions:
@@ -261,8 +252,9 @@
       Hostile: 200
       Death: 300
       Medical: 200
-    eventType: Roundstart
-    chaosScore: 900
+    eventType: HostilesSpawn
+  - type: GameRule
+    chaosScore: 1000
   - type: BlobSpawnRule
     carrierBlobProtos:
     - SpawnPointGhostBlobRat
@@ -350,6 +342,7 @@
   components:
   - type: DevilRule
   - type: GameRule
+    chaosScore: 350 # low since they tend to revive people and stuff
     minPlayers: 15
   - type: AntagObjectives
     objectives:
