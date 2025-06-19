@@ -14,7 +14,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: entity
+- type: entity # KS14 - Removed flash capability (it broke stuff)
   name: sonic screwdriver
   parent: BaseItem
   id: SonicScrewdriver
@@ -30,11 +30,6 @@
   - type: Tag
     tags:
     - Multitool
-  - type: Flash
-    duration: 20000
-    aoeFlashDuration: 10000
-    slowTo: 0.2
-    range: 15
   - type: MeleeWeapon
     wideAnimationRotation: 180
     damage:
@@ -98,9 +93,9 @@
   id: RCDChrono
   description: A tool that can build a station from scratch in minutes.
   components:
-  - type: LimitedCharges
-    maxCharges: 100
-    charges: 100
+  - type: LimitedCharges # KS14 - Buffed charges
+    maxCharges: 100000
+    charges: 100000
   - type: UseDelay
     delay: 0.1
   - type: AutoRecharge

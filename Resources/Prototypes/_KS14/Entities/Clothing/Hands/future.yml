@@ -1,0 +1,22 @@
+
+- type: entity
+  parent: ClothingHandsGlovesColorBlack # this is a chrono glove base ignore me lmao, i just left this here for later adding to uplink maybe, im planning on adding armor for every slot :godo:
+  id: ClothingHandsGlovesUltra
+  name: Upgraded combat gloves
+  description: Combat gloves with advanced fiber lining.
+  components:
+  - type: Unremoveable
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/combat.rsi
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/combat.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+  - type: Armor # Goob
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Shock: 0.8

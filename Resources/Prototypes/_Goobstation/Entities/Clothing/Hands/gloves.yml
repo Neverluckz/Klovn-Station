@@ -109,6 +109,12 @@
   name: futuristic gloves
   description: Futuristic gloves made of an unknown material that doesn't leave any trace
   components:
+  - type: ClothingGrantComponent # KS14 - Added prying
+    component:
+    - type: Prying
+      pryPowered: true
+      force: true
+      speedModifier: 6.5
   - type: Sprite
     sprite: _Goobstation/Clothing/Hands/Gloves/chronolegioneer.rsi
   - type: Clothing

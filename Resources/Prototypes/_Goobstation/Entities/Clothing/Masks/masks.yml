@@ -21,6 +21,19 @@
   name: futuristic gasmask
   description: A futuristic gas mask of unknown design with an unimaginable number of filtration systems
   components:
+  - type: IngestionBlocker # KS14 - Added blocker
+    blockSmokeIngestion: true
+  - type: Armor # KS14 - Added armor
+    coverage:
+    - Head
+    modifiers:
+      coefficients:
+        Blunt: 0.01
+        Slash: 0.01
+        Piercing: 0.01
+        Heat: 0.01
+  - type: FlashImmunity # KS14 - Added flash protection
+  - type: EyeProtection # KS14 - Added eye protection
   - type: Sprite
     sprite: _Goobstation/Clothing/Mask/chronolegioneer.rsi
   - type: Clothing

@@ -1,0 +1,57 @@
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesHudUltra
+  abstract: true
+  name: base ultra glasses
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Hud/omni.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Hud/omni.rsi
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - Inorganic
+    - Silicon
+    - SiliconRadiation
+  - type: ShowHungerIcons
+  - type: ShowThirstIcons
+  - type: ShowSyndicateIcons
+  - type: ShowMindShieldIcons
+  - type: ShowJobIcons
+  - type: ShowCriminalRecordIcons
+  - type: ShowHealthIcons
+
+- type: entity
+  parent: [ClothingEyesHudUltra, BaseCentcommContraband]
+  id: ClothingEyesGlassesUltra
+  suffix: DO NOT MAP
+  name: ultra shades
+  description: Bluespace assisted glasses for the ultra elite. Utilises plot armor technology to grant Krav Maga to the wearer.
+  components:
+  - type: Unremoveable
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Eyes/Glasses/deathsquad.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Eyes/Glasses/deathsquad.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: ThermalVision
+    isEquipment: true
+    color: "#98EEFB"
+    lightRadius: 1
+  - type: ChameleonClothing
+    slot: [ eyes ]
+    default: ClothingEyesGlassesDeathsquad
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+  - type: ClothingGrantComponent
+    component:
+    - type: KravMaga # Silly
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag

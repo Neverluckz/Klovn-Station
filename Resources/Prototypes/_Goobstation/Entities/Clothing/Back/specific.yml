@@ -32,7 +32,7 @@
   - type: Item
     size: Ginormous
   - type: Storage
-    maxItemSize: Huge
+    maxItemSize: Ginormous # KS14 - Made ginormous
     grid:
     - 0,0,8,5
   - type: Tag
@@ -53,18 +53,14 @@
   suffix: Filled, Unremoveable
   components:
   - type: StorageFill
-    contents:
+    contents: # KS14 - Removed freedom, scram, mindshield implanters, and flash
       - id: StasisCage
         amount: 4
       - id: MedkitCombatStasiziumFilled
       - id: StasisBaton
-      - id: FreedomImplanter
-      - id: ScramImplanter
-      - id: MindShieldImplanter
       - id: RCDChrono
       - id: ChronoTeleporter
       - id: HandheldGPSBasic # Mass Scanner Removed by Lavaland
-      - id: Flash
       - id: TimelineDisruptorFlatpack
 
 - type: entity

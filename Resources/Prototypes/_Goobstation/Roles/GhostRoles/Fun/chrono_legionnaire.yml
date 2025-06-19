@@ -8,16 +8,19 @@
 - type: startingGear
   id: ChronoLegionnaireGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitRecruitNT
+    jumpsuit: ClothingUniformJumpsuitDeathSquad # KS14 - Added this <
     back: ClothingBackpackStasisBatteryUnremoveableFilled
     mask: ClothingMaskGasChronoUnremoveable
-    eyes: ClothingEyesHudChronoUnremoveable
+    eyes: ClothingEyesGlassesUltra # KS14 - Added this <
     ears: ClothingHeadsetChronolegioneerUnremoveable
-    gloves: ClothingHandsGlovesChronoLegioneerUnremoveable
+    gloves: ClothingHandsGlovesUltra # KS14 - Added this <
     outerClothing: ClothingOuterHardsuitChronolegioneerUnremoveable
-    suitstorage: JetpackChronoUnremoveable
+    suitstorage: JetpackChrono # KS14 - Added this <
     shoes: ClothingShoesBootsChronoUnremoveable
     id: ChronoPDA
     belt: WeaponStasisGun
     pocket1: PinpointerStation
     pocket2: SonicScrewdriver
+  special: # KS14 - Added autoimplant
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, NutrimentPumpImplant, StypticStimulatorImplant ]
