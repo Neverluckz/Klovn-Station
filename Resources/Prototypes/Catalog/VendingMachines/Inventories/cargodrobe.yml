@@ -55,3 +55,5 @@
     ToyFigurineCargoTech: 1
     ToyFigurineSalvage: 1
     ToyFigurineQuartermaster: 1
+  emaggedInventory: # KS14 - Added to emagged inventory (and whitespace :trollface:)
+    WeaponProtoKineticPistol: 1

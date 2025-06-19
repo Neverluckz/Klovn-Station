@@ -32,3 +32,5 @@
     FoodShakerPepper: 1
     FoodCondimentBottleKetchup: 1
     ReagentContainerMayo: 1
+  emaggedInventory:
+    ShardCrystalBlue: 1 #KS14 addition, so thats how they make it taste so good... also added whitespace

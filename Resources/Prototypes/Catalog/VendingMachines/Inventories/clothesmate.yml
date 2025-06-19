@@ -153,8 +153,8 @@
     ToyFigurineGreytider: 1
     ClothingBackpackSatchelSmugglerUnanchored: 1
   # DO NOT ADD MORE, USE UNIFORM DYING
-  emaggedInventory:
-    ClothingHeadHatCentcomcap: 1 #KS starts here
+  emaggedInventory: # KS14 - Added emagged inventory
+    ClothingHeadHatCentcomcap: 1
     ClothingEyesGlassesCommand: 1
     ClothingUniformJumpskirtOperative: 2
     ClothingUniformJumpsuitOperative: 2
@@ -165,4 +165,4 @@
     ClothingUniformJumpsuitChiefEngineerSyndie: 1
     ToyFigurineFootsoldier: 1
     ClothingUniformJumpsuitSyndieFormal: 1
-    ClothingUniformJumpskirtSyndieFormalDress: 1 #KS ends here
+    ClothingUniformJumpskirtSyndieFormalDress: 1
