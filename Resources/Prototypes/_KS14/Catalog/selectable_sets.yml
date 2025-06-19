@@ -1,0 +1,62 @@
+- type: selectableSet
+  id: ERTLaserSet
+  name: selectable-set-ert-laser-name
+  description: selectable-set-ert-laser-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+    state: base
+  content:
+  - WeaponEnergyShotgun
+  - WeaponAdvancedLaser
+
+- type: selectableSet
+  id: ERTEnergySwordSet
+  name: selectable-set-ert-esword-name
+  description: selectable-set-ert-esword-description
+  sprite:
+    sprite: Structures/Wallmounts/posters.rsi
+    state: poster29_contraband
+  content:
+  - EnergyShield
+  - EnergySword
+
+- type: selectableSet
+  id: ERTSniperSet
+  name: selectable-set-ert-sniper-name
+  description: selectable-set-ert-sniper-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
+    state: base
+  content:
+  - WeaponSniperHristov
+  - MagazineAntiMateriel
+  - MagazineBoxAntiMateriel
+
+- type: selectableSet
+  id: ERTBreacherSet
+  name: selectable-set-ert-breacher-name
+  description: selectable-set-ert-breacher-description
+  sprite:
+    sprite: Objects/Weapons/Bombs/seismic.rsi
+    state: icon
+  content:
+  - FireAxe
+  - SeismicCharge
+  - SeismicCharge
+  - SeismicCharge
+  - C4
+  - C4
+  - RemoteSignaller
+  - Multitool
+
+- type: selectableSet
+  id: ERTCQCSet
+  name: selectable-set-ert-cqc-name
+  description: selectable-set-ert-cqc-description
+  sprite:
+    sprite: _Goobstation/Objects/Misc/cqc_manual.rsi
+    state: icon-alt
+  content:
+  - BolaEnergy
+  - BolaEnergy
+  - BSOManual

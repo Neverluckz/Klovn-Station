@@ -39,12 +39,12 @@
             mobstate: Dead
         - !type:HealthChange
           damage:
-            groups:
-              Brute: -20
-              Burn: -20
-              Airloss: -20
-              Toxin: -20
-              Genetic: -20
+            groups: # KS14 - Buffed from -20 each to -50
+              Brute: -50
+              Burn: -50
+              Airloss: -50
+              Toxin: -50
+              Genetic: -50
         - !type:HealthChange
           conditions:
           - !type:ReagentThreshold

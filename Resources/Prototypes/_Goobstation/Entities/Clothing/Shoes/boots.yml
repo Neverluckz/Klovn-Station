@@ -23,6 +23,10 @@
   name: futuristic boots
   description: An advanced futuristic shoe that guarantees wearer comfort and full traction on any surface
   components:
+  - type: ClothingSlowOnDamageModifier # KS14 - Added this comp
+    modifier: 0.01
+  - type: ModifyStandingUpTime # KS14 - Added this comp
+    multiplier: 0.01
   - type: Sprite
     sprite: _Goobstation/Clothing/Shoes/Boots/chronolegioneer.rsi
     state: icon
@@ -30,8 +34,8 @@
     sprite: _Goobstation/Clothing/Shoes/Boots/chronolegioneer.rsi
   - type: Magboots
   - type: ClothingSpeedModifier
-    walkModifier: 1
-    sprintModifier: 1
+    walkModifier: 1.1 # KS14 - Made faster
+    sprintModifier: 1.1 # KS14 - Made faster
   - type: NoSlip
   - type: Tag
     tags:

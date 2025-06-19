@@ -58,8 +58,8 @@
         Caustic: 0.01
         Radiation: 0.01
   - type: ClothingSpeedModifier
-    walkModifier: 0.70
-    sprintModifier: 0.70
+    walkModifier: 1.1 # KS14 - Made faster
+    sprintModifier: 1.1 # KS14 - Made faster
   - type: HeldSpeedModifier
   - type: StasisProtection
   - type: StasisBlinkProvider

@@ -6,10 +6,66 @@
 
 - type: entity
   name: futuristic stunbaton
-  parent: Stunbaton
   id: StasisBaton
   description: An advanced security baton for shutting down interfering tiders
   components:
+### KS14 Edit Start
+  - type: Tag
+    tags:
+    - Stunbaton
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Blunt: 0
+  - type: MeleeWeapon
+    animationRotation: -45 # WWDP
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 50
+    bluntStaminaDamageFactor: 2.0
+  - type: StaminaDamageOnCollide
+    damage: 100
+    overtime: 0
+    sound: /Audio/Weapons/egloves.ogg
+  - type: LandAtCursor # it deals stamina damage when thrown
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: Clothing
+    sprite: Objects/Weapons/Melee/stunbaton.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: DisarmMalus
+    malus: 0.225
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+     enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: {state: stunbaton_on}
+          False: {state: stunbaton_off}
+  - type: StaticPrice
+    price: 35000
+  - type: Riggable
+  - type: SolutionContainerManager
+    solutions:
+      battery:
+        maxVol: 5
+  - type: InjectableSolution
+    solution: battery
+  - type: DrawableSolution
+    solution: battery
+  - type: Explosive
+    explosionType: Default
+    intensitySlope: 1.5
+    maxIntensity: 200
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 75
+      Plastic: 75
+### KS14 Edit End
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/stasisbaton.rsi
     layers:
@@ -17,6 +73,7 @@
       map: [ "enum.ToggleVisuals.Layer" ]
   - type: Stunbaton
     energyPerUse: 10
+    lightAttackEnergyMultiplier: 2 # KS14 edit, dumbass
   - type: ItemToggle
     predictable: false
     soundActivate:
@@ -31,11 +88,15 @@
       path: /Audio/Weapons/eblademiss.ogg
       params:
         variation: 0.250
-  - type: StaminaDamageOnHit
-    damage: 75
+  - type: StaminaDamageOnHit # KS14 - Buffed this
+    damage: 100
+    overtime: 0
+    lightAttackDamageMultiplier: 2
+    lightAttackOvertimeDamageMultiplier: 0
     sound: /Audio/Weapons/egloves.ogg
   - type: UseDelay
-  - type: Item
+  - type: Item # KS14 - Prefix set to off
+    heldPrefix: off
     size: Small
   - type: BatterySelfRecharger
     autoRecharge: true

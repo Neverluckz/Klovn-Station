@@ -43,9 +43,13 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Security/ertundetermined.rsi
     state: icon
-  - type: SetSelector
+  - type: SetSelector # KS14 - Added ERTLaserSet, ERTEnergySwordSet, ERTSniperSet, ERTBreacherSet, ERTCQCSet
     possibleSets:
     - ERTBallisticsSet
-    - ERTPulseSet
+    - ERTLaserSet
+    - ERTEnergySwordSet
+    - ERTSniperSet
+    - ERTBreacherSet
+    - ERTCQCSet
     maxSelectedSets: 1
 

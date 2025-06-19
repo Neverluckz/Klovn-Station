@@ -146,6 +146,7 @@
   name: death squad uniform
   description: Advanced armored jumpsuit used by special forces in special operations.
   components:
+  - type: Unremoveable # KS14 - changed for chrono but DS should not have jumpsuit stolen by some fuckhead and EVERYTHING drops at once :godo:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/deathsquad.rsi
   - type: Clothing
@@ -1547,3 +1548,4 @@
     sprite: Clothing/Uniforms/Jumpsuit/familiar_garbs.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/familiar_garbs.rsi
+# KS14 - Added whitespace

@@ -70,13 +70,13 @@
     CartridgeSaline: 4
     CartridgeBicaridine: 4
     CartridgeDermaline: 4 # Goobstation - end
-    ClothingOuterArmorRiot: 3 #KS
-    ClothingHeadHelmetRiot: 3
-    Chainsaw: 1 #KS
+    ClothingOuterArmorRiot: 3 # KS14 - Added riot armor
+    ClothingHeadHelmetRiot: 3 # KS14 - Added riot armor
   # security officers need to follow a diet regimen!
   contrabandInventory:
     WeaponMeleeNeedle: 2
     FoodDonutHomer: 12
     FoodBoxDonut: 2
-    #its funny though
-    ExGrenade: 1 #KS
+    ExGrenade: 1 #KS14
+  emaggedInventory: # KS14 - Added emagged inventory
+    Chainsaw: 1

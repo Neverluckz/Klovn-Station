@@ -40,5 +40,6 @@
     ClothingOuterVest: 2
     ClothingBeltBandolier: 2
     ClothingEyesGlassesSunglasses: 2
+    ClothingUniformJumpsuitJacketMonkey: 1 #KS14, puns spare jacket.
   contrabandInventory:
-    ToyFigurineBartender: 1
+    ToyFigurineBartender: 1  # KS14 - Added whitespace
