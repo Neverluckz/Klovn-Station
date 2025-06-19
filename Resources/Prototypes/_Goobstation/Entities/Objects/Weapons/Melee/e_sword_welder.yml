@@ -49,11 +49,17 @@
     predictable: false
     soundActivate:
       path: /Audio/_Goobstation/Weapons/EswordWelder/on.ogg
+      params: #KS14 - Added params here; made this quieter
+        volume: -3.6
     soundDeactivate:
       path: /Audio/_Goobstation/Weapons/EswordWelder/off.ogg
+      params: #KS14 - Added params here; made this quieter
+        volume: -3.6
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/_Goobstation/Weapons/EswordWelder/hum.ogg
+      params: #KS14 - Added params here; made this quieter
+        volume: -3.6
   - type: SurgeryTool # Shitmed
     startSound:
       path: /Audio/_Goobstation/Weapons/EswordWelder/hum.ogg
@@ -108,11 +114,11 @@
     node: welderSword
 
 - type: entity #KS14 - Added description
-  name: welder energy sword
+  name: industrial welder energy sword
   parent: EnergySwordWelder
   #categories: [ HideSpawnMenu ] # KS14 - Added this to spawnmenu
   id: EnergySwordWelderIndustrial
-  description: Converted from a welding tool, this energy sword hums a dangerously strong flame. It looks like dangerous.
+  description: Converted from an industrial welding tool, this energy sword hums loudly with a dangerously hot flame. The fires are blinding.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi
@@ -130,20 +136,21 @@
         - ReagentId: WeldingFuel
           Quantity: 250
         maxVol: 250
-  - type: ItemToggleMeleeWeapon # KS14 - Added this comp
-    activatedSoundOnHit:
-      path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
-      params:
-        variation: 0.250
-    activatedSoundOnHitNoDamage:
-      path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
-      params:
-        variation: 0.250
-        volume: -10
-    activatedSoundOnSwing:
-      path: /Audio/_Goobstation/Weapons/EswordWelder/swing.ogg
-      params:
-        variation: 0.125
+  - type: ItemToggle # KS14 - Added these comp properties
+    soundActivate:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/on.ogg
+      params: #KS14 - Added params here; made this slightly louder
+        volume: -1.7
+    soundDeactivate:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/off.ogg
+      params: #KS14 - Added params here; made this slightly louder
+        volume: -1.7
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/hum.ogg
+      params: #KS14 - Added params here; made this slightly louder
+        volume: -1.7
+  - type: ItemToggleMeleeWeapon # KS14 - Added these comp properties
     activatedDamage: # ks edits
       types:
         Slash: 8
@@ -162,7 +169,7 @@
   parent: EnergySwordWelder
   #categories: [ HideSpawnMenu ] # KS14 - Added this to spawnmenu
   id: EnergySwordWelderExperimental
-  description: A very loud and dangerous energy sword converted from an experimental welding tool, with a beam of pure concentrated plasma. The craftmanship is masterful.
+  description: A very loud and dangerous energy sword converted from an experimental welding tool, that shines a beam of pure concentrated plasma. The craftmanship is masterful.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi
@@ -182,7 +189,21 @@
         - ReagentId: WeldingFuel
           Quantity: 1000
         maxVol: 1000
-  - type: ItemToggleMeleeWeapon # KS14 - Added this comp
+  - type: ItemToggle # KS14 - Added these comp properties
+    soundActivate:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/on.ogg
+      params: #KS14 - Added params here; made this the loudest weldersword
+        volume: 1.1
+    soundDeactivate:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/off.ogg
+      params: #KS14 - Added params here; made this the loudest weldersword
+        volume: 1.1
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/_Goobstation/Weapons/EswordWelder/hum.ogg
+      params: #KS14 - Added params here; made this the loudest weldersword
+        volume: 1.1
+  - type: ItemToggleMeleeWeapon # KS14 - Added these comp properties
     activatedSoundOnHit:
       path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
       params:
@@ -191,7 +212,7 @@
       path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
       params:
         variation: 0.250
-        volume: -10
+        volume: -8
     activatedSoundOnSwing:
       path: /Audio/_Goobstation/Weapons/EswordWelder/swing.ogg
       params:
