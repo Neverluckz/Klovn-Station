@@ -62,12 +62,6 @@
 # Autolathe
 - type: latheRecipe
   parent: [ BaseCheapElectronicsRecipe, BaseMachineRecipeCategory ]
-  id: CellRechargerCircuitboard
-  icon: { sprite: Structures/Power/cell_recharger.rsi, state: empty } # Goobstation
-  result: CellRechargerCircuitboard
-
-- type: latheRecipe
-  parent: [ BaseCheapElectronicsRecipe, BaseMachineRecipeCategory ]
   id: WeaponCapacitorRechargerCircuitboard
   icon: { sprite: Structures/Power/recharger.rsi, state: empty } # Goobstation
   result: WeaponCapacitorRechargerCircuitboard
