@@ -8,11 +8,11 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: entity
+- type: entity # KS14 - Changed description
   name: welder energy sword
   parent: [BaseMeleeWeaponEnergy, BaseMinorContraband]
   id: EnergySwordWelder
-  description: Roughly converted from a welding tool, this energy sword hums an unstable flame. It looks like it's about to fall apart.
+  description: Roughly converted from a welding tool, this energy sword hums with an unstable flame. It looks like it's about to fall apart.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi
@@ -40,11 +40,11 @@
       path: /Audio/_Goobstation/Weapons/EswordWelder/swing.ogg
       params:
         variation: 0.125
-    activatedDamage: # ks edits
-        types:
-            Slash: 7
-            Heat: 10
-            Structure: 10 
+    activatedDamage: # KS14 - Added `activatedDamage`
+      types:
+        Slash: 7
+        Heat: 10
+        Structural: 10
   - type: ItemToggle
     predictable: false
     soundActivate:
@@ -63,6 +63,27 @@
       path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
       params:
         variation: 0.250
+  - type: Tool # KS14 - Added ability for weldersword to weld
+    alwaysCheckDoAfter: true # Goobstation
+    useSound:
+      collection: Welder
+    qualities:
+    - Welding
+    - Axing # Goobstation
+    - Ignition
+  - type: ToolTileCompatible # KS14 - Added ability for weldersword to weld
+    delay: 15
+  - type: RequiresEyeProtection # KS14 - Added ability for weldersword to weld
+    statusEffectTime: 15
+  - type: WeldingHealing # EE IPCs -- KS14 - Added ability for weldersword to weld
+    damageContainers:
+      - SiliconRadiation # Goobstation - Make IPCs take radiation
+    fuelCost: 5
+    damage:
+      types:
+        Blunt: -20
+        Piercing: -20
+        Slash: -20
   - type: Reflect
     reflectProb: 0.1
     reflects:
@@ -86,11 +107,12 @@
     graph: WelderSword
     node: welderSword
 
-- type: entity
+- type: entity #KS14 - Added description
   name: welder energy sword
   parent: EnergySwordWelder
-  categories: [ HideSpawnMenu ]
+  #categories: [ HideSpawnMenu ] # KS14 - Added this to spawnmenu
   id: EnergySwordWelderIndustrial
+  description: Converted from a welding tool, this energy sword hums a dangerously strong flame. It looks like dangerous.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi
@@ -108,7 +130,7 @@
         - ReagentId: WeldingFuel
           Quantity: 250
         maxVol: 250
-    - type: ItemToggleMeleeWeapon
+  - type: ItemToggleMeleeWeapon # KS14 - Added this comp
     activatedSoundOnHit:
       path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
       params:
@@ -123,20 +145,24 @@
       params:
         variation: 0.125
     activatedDamage: # ks edits
-        types:
-            Slash: 8
-            Heat: 15
-            Structure: 10
+      types:
+        Slash: 8
+        Heat: 15
+        Structural: 10
+  - type: ToolTileCompatible # KS14 - Added ability for weldersword to weld, changed for industrwelder
+    delay: 10
+  - type: RequiresEyeProtection # KS14 - Added ability for weldersword to weld, changed for industrwelder
+    statusEffectTime: 25 # industrial welder is stronger
   - type: Construction
     graph: WelderSwordIndustrial
     node: welderSwordIndustrial
 
-- type: entity
-  name: welder energy sword
+- type: entity # KS14 - Changed name and description
+  name: experimental welder energy sword
   parent: EnergySwordWelder
-  categories: [ HideSpawnMenu ]
+  #categories: [ HideSpawnMenu ] # KS14 - Added this to spawnmenu
   id: EnergySwordWelderExperimental
-  description: A very loud & dangerous sword with a beam made of pure, concentrated plasma. Cuts through unarmored targets like butter.
+  description: A very loud and dangerous energy sword converted from an experimental welding tool, with a beam of pure concentrated plasma. The craftmanship is masterful.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi
@@ -156,7 +182,7 @@
         - ReagentId: WeldingFuel
           Quantity: 1000
         maxVol: 1000
-      - type: ItemToggleMeleeWeapon
+  - type: ItemToggleMeleeWeapon # KS14 - Added this comp
     activatedSoundOnHit:
       path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
       params:
@@ -171,10 +197,14 @@
       params:
         variation: 0.125
     activatedDamage: # ks edits
-        types:
-            Slash: 9
-            Heat: 16
-            Structure: 20
+      types:
+        Slash: 9
+        Heat: 16
+        Structural: 20
+  - type: ToolTileCompatible # KS14 - Added ability for weldersword to weld, changed for experiwelder
+    delay: 7
+  - type: RequiresEyeProtection # KS14 - Added ability for weldersword to weld, changed for experiwelder
+    statusEffectTime: 5 # you can do it with sunglasses, like normal experiwelder
   - type: Construction
     graph: WelderSwordExperimental
     node: welderSwordExperimental
@@ -183,6 +213,6 @@
     generated:
       reagents:
         - ReagentId: WeldingFuel
-          Quantity: 6 # Cuz fuelConsumption is 6
+          Quantity: 8 #KS14 - Changed this to 8
 
 
