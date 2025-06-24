@@ -195,6 +195,9 @@ uplink-pistol-magazine-caseless-desc = Pistol magazine with 10 hollow-point case
 uplink-speedloader-magnum-name = Speedloader (.45 magnum AP)
 uplink-speedloader-magnu-desc = Revolver speedloader with 6 armor-piercing catridges, capable of ignoring armor entirely. Compatible with the Python.
 
+uplink-speedloader-antimateriel-name = Antimateriel Speedloader
+uplink-speedloader-antimateriel-desc = Speedloader for .60 antimateriel revolvers. Holds 7 rounds of pure overkill.
+
 uplink-mosin-ammo-name = Ammunition box (.30 rifle)
 uplink-mosin-ammo-desc = A box of 60 cartridges for the surplus rifle.
 
@@ -572,3 +575,6 @@ uplink-fake-mindshield-desc = A togglable implant capable of mimicking the same 
 
 uplink-smuggler-satchel-name = Smuggler's Satchel
 uplink-smuggler-satchel-desc = A handy, suspicious looking satchel. Just flat enough to fit underneath floor tiles.
+
+uplink-revolver-antimateriel-name = Antimateriel Revolver
+uplink-revolver-antimateriel-desc = A monstrous revolver chambered in .60 antimateriel. Devastating power, but heavy and slows you down.

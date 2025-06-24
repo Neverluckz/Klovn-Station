@@ -156,3 +156,31 @@
     steps: 7
     zeroVisible: false
   - type: Appearance
+
+- type: entity
+  id: SpeedLoaderAntiMateriel
+  name: "speed loader (.60 antimateriel)"
+  parent: BaseSpeedLoaderMagnum
+  description: Designed to quickly refill an empty antimateriel revolver, it fits up to five rounds of .60 antimateriel.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeAntiMateriel
+    whitelist:
+      tags:
+        - CartridgeAntiMateriel
+    capacity: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi # Временно, заменить на свой спрайт
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: base-5
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: base
+    steps: 6
+    zeroVisible: false
+  - type: Appearance
+  - type: Tag
+    tags:
+      - SpeedLoaderAntiMateriel

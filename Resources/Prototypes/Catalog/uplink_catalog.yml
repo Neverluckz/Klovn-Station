@@ -202,6 +202,25 @@
   categories:
   - UplinkWeaponry
 
+- type: listing
+  id: UplinkRevolverAntimateriel
+  name: uplink-revolver-antimateriel-name
+  description: uplink-revolver-antimateriel-desc
+  productEntity: WeaponRevolverAntimateriel
+  cost:
+    Telecrystal: 35
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkSpeedLoaderAntiMateriel
+  name: uplink-speedloader-antimateriel-name
+  description: uplink-speedloader-antimateriel-desc
+  productEntity: SpeedLoaderAntiMateriel
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkAmmo
 
 # Inbuilt suppressor so it's sneaky + more expensive.
 - type: listing
