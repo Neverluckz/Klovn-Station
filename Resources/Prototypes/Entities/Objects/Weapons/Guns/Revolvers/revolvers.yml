@@ -258,37 +258,4 @@
     chambers: [ null, null, null, null, null ]
     ammoSlots: [ null, null, null, null, null ]
 
-- type: entity
-  name: Antimateriel revolver
-  parent: BaseWeaponRevolver
-  id: WeaponRevolverAntimateriel
-  description: Giant revolver chambered in .60 antimateriel. Requires inhuman strength to fire one-handed.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Revolvers/antimateriel.rsi
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Revolvers/antimateriel.rsi
-  - type: Gun
-    fireRate: 0.5
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
-  - type: RevolverAmmoProvider
-    whitelist:
-      tags:
-        - CartridgeAntiMateriel
-        - SpeedLoaderAntiMateriel
-    proto: CartridgeAntiMateriel
-    capacity: 7
-    chambers: [ True, True, True, True, True, True, True ]
-    ammoSlots: [ null, null, null, null, null, null, null ]
-    soundEject:
-      path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
-    soundInsert:
-      path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
-  - type: StaticPrice
-    price: 5000
-  - type: MovementSpeedModifier
-    walkSpeedModifier: 0.9
-    sprintSpeedModifier: 0.9
-
 

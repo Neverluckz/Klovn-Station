@@ -3,3 +3,9 @@
 
 - type: Tag
   id: CannotSuicideAny
+
+- type: Tag
+  id: SpeedLoaderAntiMateriel
+
+- type: Tag
+  id: WeaponRevolverAntimateriel

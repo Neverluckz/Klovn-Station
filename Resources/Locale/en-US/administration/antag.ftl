@@ -35,4 +35,7 @@ admin-verb-text-make-head-rev = Make Head Rev
 admin-verb-text-make-thief = Make Thief
 admin-verb-text-make-paradox-clone = Create Paradox Clone
 
+# backmen: vampires
+admin-verb-text-make-vampire = Make Vampire
+
 admin-overlay-antag-classic = ANTAG
