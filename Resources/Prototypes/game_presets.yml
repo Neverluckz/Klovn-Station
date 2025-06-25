@@ -103,6 +103,7 @@
     - BlobGameMode
     - LoneAbductorSpawn
     # - KesslerSyndromeScheduler Goobstation - nuh uh
+    - Wizard
     - RampingStationEventScheduler
     - Changeling # Goobstation - changeling playtest
     - SpaceTrafficControlEventScheduler
@@ -128,6 +129,11 @@
     - Heretic
     - BlobGameMode
     - LoneAbductorSpawn
+    - Wizard
+    - BasicStationEventScheduler
+#    - KesslerSyndromeScheduler
+#    - MeteorSwarmMildScheduler # Goob Edit
+#    - MeteorSwarmScheduler # Goob edit
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
@@ -271,7 +277,7 @@
   description: rev-description
   showInVote: false
   rules:
-  - DummyNonAntagChance
+  - DummyNonAntagChance  
   - Revolutionary
   - SubGamemodesRule
   - BasicStationEventScheduler
@@ -312,22 +318,6 @@
   - Zombie
   - BasicStationEventScheduler
  # - KesslerSyndromeScheduler
-  - SpaceTrafficControlEventScheduler
-  - BasicRoundstartVariation
-  - LavalandStormScheduler # Lavaland Change
-
-- type: gamePreset
-  id: VampiresGameRule # backmen: vampires
-  alias:
-  - vampires
-  name: vampires-title
-  showInVote: false # secret
-  description: vampires-description
-  rules:
-  - Wizard
-  - VampiresGameRule # backmen: vampires
-  - RampingStationEventScheduler
-  - Changeling # Goobstation - changeling playtest
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change
